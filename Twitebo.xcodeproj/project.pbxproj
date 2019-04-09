@@ -12,10 +12,11 @@
 		4A7B0C18225C9ACE0045C03D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A7B0C16225C9ACE0045C03D /* Main.storyboard */; };
 		4A7B0C1A225C9ACF0045C03D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A7B0C19225C9ACF0045C03D /* Assets.xcassets */; };
 		4A7B0C1D225C9ACF0045C03D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A7B0C1B225C9ACF0045C03D /* LaunchScreen.storyboard */; };
-		4A7B0C28225C9ACF0045C03D /* TwiteboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7B0C27225C9ACF0045C03D /* TwiteboTests.swift */; };
 		4A7B0C3D225C9E970045C03D /* TwiteboApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7B0C3C225C9E970045C03D /* TwiteboApi.swift */; };
 		4A7B0C3F225C9EC80045C03D /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7B0C3E225C9EC80045C03D /* Team.swift */; };
 		4A7B0C41225C9FDC0045C03D /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7B0C40225C9FDC0045C03D /* Configuration.swift */; };
+		4A7B0C52225CD7030045C03D /* ApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7B0C51225CD7030045C03D /* ApiTests.swift */; };
+		4A7B0C54225CD9CC0045C03D /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7B0C53225CD9CC0045C03D /* Member.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,11 +38,12 @@
 		4A7B0C1C225C9ACF0045C03D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4A7B0C1E225C9ACF0045C03D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A7B0C23225C9ACF0045C03D /* TwiteboTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TwiteboTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4A7B0C27225C9ACF0045C03D /* TwiteboTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwiteboTests.swift; sourceTree = "<group>"; };
 		4A7B0C29225C9ACF0045C03D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A7B0C3C225C9E970045C03D /* TwiteboApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwiteboApi.swift; sourceTree = "<group>"; };
 		4A7B0C3E225C9EC80045C03D /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		4A7B0C40225C9FDC0045C03D /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		4A7B0C51225CD7030045C03D /* ApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTests.swift; sourceTree = "<group>"; };
+		4A7B0C53225CD9CC0045C03D /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,8 +97,8 @@
 		4A7B0C26225C9ACF0045C03D /* TwiteboTests */ = {
 			isa = PBXGroup;
 			children = (
-				4A7B0C27225C9ACF0045C03D /* TwiteboTests.swift */,
 				4A7B0C29225C9ACF0045C03D /* Info.plist */,
+				4A7B0C51225CD7030045C03D /* ApiTests.swift */,
 			);
 			path = TwiteboTests;
 			sourceTree = "<group>";
@@ -157,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				4A7B0C3E225C9EC80045C03D /* Team.swift */,
+				4A7B0C53225CD9CC0045C03D /* Member.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A7B0C3F225C9EC80045C03D /* Team.swift in Sources */,
+				4A7B0C54225CD9CC0045C03D /* Member.swift in Sources */,
 				4A7B0C41225C9FDC0045C03D /* Configuration.swift in Sources */,
 				4A7B0C15225C9ACE0045C03D /* ViewController.swift in Sources */,
 				4A7B0C3D225C9E970045C03D /* TwiteboApi.swift in Sources */,
@@ -315,7 +319,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A7B0C28225C9ACF0045C03D /* TwiteboTests.swift in Sources */,
+				4A7B0C52225CD7030045C03D /* ApiTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,7 +12,14 @@ import Foundation
 /// values.
 enum Configuration
 {
+    // MARK: - Configureable values -
+
     /// Twitch API client id.
     /// See: http://dev.twitch.tv/console/apps
     static let twitchClientId = ""
+
+    // MARK: - API Endpoint values -
+
+    /// Endpoint for the teams request.
+    static let twitchApiTeamsEndpoint = "https://api.twitch.tv/kraken/teams"
 }
