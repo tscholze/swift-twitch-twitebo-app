@@ -11,8 +11,11 @@ import Foundation
 struct Team: Codable
 {
     let id: Int
-    let name, info, displayName: String
-    let createdAt, updatedAt: Date
+    let name: String
+    let info: String
+    let displayName: String
+    // let createdAt: Date
+    // let updatedAt: Date
     let logo: String
     let banner: String?
     let background: String?
@@ -24,8 +27,8 @@ struct Team: Codable
         case name
         case info
         case displayName = "display_name"
-        case createdAt = "created_at"
-        case updatedAt = "updated_at"
+        // case createdAt = "created_at"
+        // case updatedAt = "updated_at"
         case logo
         case banner
         case background

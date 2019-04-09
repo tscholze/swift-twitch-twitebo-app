@@ -10,16 +10,63 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Team View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Twitebo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="TeamViewController" customModule="Twitebo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OF0-h6-aIJ">
+                                <rect key="frame" x="186" y="442.5" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RgD-ET-oFR" userLabel="Team Header View">
+                                <rect key="frame" x="0.0" y="44" width="414" height="256"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="A0B-Bs-59a">
+                                        <rect key="frame" x="143" y="20" width="128" height="128"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="128" id="JBT-77-hbH"/>
+                                            <constraint firstAttribute="height" constant="128" id="UV3-O7-ib6"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eko-j8-acE">
+                                        <rect key="frame" x="20" y="168" width="374" height="31.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="eko-j8-acE" firstAttribute="centerX" secondItem="A0B-Bs-59a" secondAttribute="centerX" id="2bU-8U-gan"/>
+                                    <constraint firstItem="A0B-Bs-59a" firstAttribute="top" secondItem="RgD-ET-oFR" secondAttribute="top" constant="20" id="2p5-PC-1qL"/>
+                                    <constraint firstItem="eko-j8-acE" firstAttribute="top" secondItem="A0B-Bs-59a" secondAttribute="bottom" constant="20" id="fLp-4T-8fa"/>
+                                    <constraint firstAttribute="height" constant="256" id="hAG-tS-Hd8"/>
+                                    <constraint firstItem="eko-j8-acE" firstAttribute="leading" secondItem="RgD-ET-oFR" secondAttribute="leading" constant="20" id="hqo-Xp-aWo"/>
+                                    <constraint firstAttribute="trailing" secondItem="eko-j8-acE" secondAttribute="trailing" constant="20" id="mXD-T7-80p"/>
+                                    <constraint firstItem="A0B-Bs-59a" firstAttribute="centerX" secondItem="RgD-ET-oFR" secondAttribute="centerX" id="zod-aQ-GJK"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RgD-ET-oFR" secondAttribute="trailing" id="N4Y-3t-jLD"/>
+                            <constraint firstItem="RgD-ET-oFR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="pIP-QI-eIx"/>
+                            <constraint firstItem="OF0-h6-aIJ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="u9T-ji-yUm"/>
+                            <constraint firstItem="OF0-h6-aIJ" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="xJV-XX-5GZ"/>
+                            <constraint firstItem="RgD-ET-oFR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="zyY-2y-f71"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="teamLogoImageView" destination="A0B-Bs-59a" id="hGb-M2-vvZ"/>
+                        <outlet property="teamNameLabel" destination="eko-j8-acE" id="ft5-ef-PlT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

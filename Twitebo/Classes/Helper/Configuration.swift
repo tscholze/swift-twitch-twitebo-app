@@ -16,7 +16,7 @@ enum Configuration
 
     /// Twitch API client id.
     /// See: http://dev.twitch.tv/console/apps
-    static let twitchClientId = ""
+    static let twitchClientId = "6ikohkliqwlz2subjt2ycls3d53qf1"
 
     // MARK: - API Endpoint values -
 

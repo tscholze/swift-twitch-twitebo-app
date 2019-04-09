@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		443E940E225D014200167C8C /* UIImageView+Url.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443E940D225D014200167C8C /* UIImageView+Url.swift */; };
+		443E9410225D029700167C8C /* TeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443E940F225D029700167C8C /* TeamViewController.swift */; };
+		443E9413225D030900167C8C /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443E9412225D030900167C8C /* LoadingView.swift */; };
+		443E9415225D04D500167C8C /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 443E9414225D04D500167C8C /* LoadingView.xib */; };
+		443E9417225D068900167C8C /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443E9416225D068900167C8C /* UIView+Nib.swift */; };
 		4A7B0C13225C9ACE0045C03D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7B0C12225C9ACE0045C03D /* AppDelegate.swift */; };
-		4A7B0C15225C9ACE0045C03D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7B0C14225C9ACE0045C03D /* ViewController.swift */; };
 		4A7B0C18225C9ACE0045C03D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A7B0C16225C9ACE0045C03D /* Main.storyboard */; };
 		4A7B0C1A225C9ACF0045C03D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A7B0C19225C9ACF0045C03D /* Assets.xcassets */; };
 		4A7B0C1D225C9ACF0045C03D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A7B0C1B225C9ACF0045C03D /* LaunchScreen.storyboard */; };
@@ -30,9 +34,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		443E940D225D014200167C8C /* UIImageView+Url.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Url.swift"; sourceTree = "<group>"; };
+		443E940F225D029700167C8C /* TeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamViewController.swift; sourceTree = "<group>"; };
+		443E9412225D030900167C8C /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		443E9414225D04D500167C8C /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
+		443E9416225D068900167C8C /* UIView+Nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Nib.swift"; sourceTree = "<group>"; };
 		4A7B0C0F225C9ACE0045C03D /* Twitebo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twitebo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A7B0C12225C9ACE0045C03D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4A7B0C14225C9ACE0045C03D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4A7B0C17225C9ACE0045C03D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4A7B0C19225C9ACF0045C03D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A7B0C1C225C9ACF0045C03D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -64,6 +72,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		443E940A225D011200167C8C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				443E940D225D014200167C8C /* UIImageView+Url.swift */,
+				443E9416225D068900167C8C /* UIView+Nib.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		443E9411225D02FD00167C8C /* GenericViews */ = {
+			isa = PBXGroup;
+			children = (
+				443E9412225D030900167C8C /* LoadingView.swift */,
+				443E9414225D04D500167C8C /* LoadingView.xib */,
+			);
+			path = GenericViews;
+			sourceTree = "<group>";
+		};
 		4A7B0C06225C9ACE0045C03D = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +160,8 @@
 		4A7B0C38225C9C940045C03D /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				443E9411225D02FD00167C8C /* GenericViews */,
+				443E940A225D011200167C8C /* Extensions */,
 				4A7B0C3C225C9E970045C03D /* TwiteboApi.swift */,
 				4A7B0C40225C9FDC0045C03D /* Configuration.swift */,
 			);
@@ -143,7 +171,7 @@
 		4A7B0C39225C9C990045C03D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				4A7B0C14225C9ACE0045C03D /* ViewController.swift */,
+				443E940F225D029700167C8C /* TeamViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -248,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A7B0C1D225C9ACF0045C03D /* LaunchScreen.storyboard in Resources */,
+				443E9415225D04D500167C8C /* LoadingView.xib in Resources */,
 				4A7B0C1A225C9ACF0045C03D /* Assets.xcassets in Resources */,
 				4A7B0C18225C9ACE0045C03D /* Main.storyboard in Resources */,
 			);
@@ -307,11 +336,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A7B0C3F225C9EC80045C03D /* Team.swift in Sources */,
+				443E9410225D029700167C8C /* TeamViewController.swift in Sources */,
+				443E940E225D014200167C8C /* UIImageView+Url.swift in Sources */,
 				4A7B0C54225CD9CC0045C03D /* Member.swift in Sources */,
 				4A7B0C41225C9FDC0045C03D /* Configuration.swift in Sources */,
-				4A7B0C15225C9ACE0045C03D /* ViewController.swift in Sources */,
 				4A7B0C3D225C9E970045C03D /* TwiteboApi.swift in Sources */,
 				4A7B0C13225C9ACE0045C03D /* AppDelegate.swift in Sources */,
+				443E9417225D068900167C8C /* UIView+Nib.swift in Sources */,
+				443E9413225D030900167C8C /* LoadingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

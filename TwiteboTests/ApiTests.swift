@@ -10,7 +10,7 @@
 import XCTest
 
 /// Default team name to use in tests
-private let kDefaultTeamName = "livecoder"
+private let kDefaultTeamName = "livecoders"
 
 /// `ApiTests` contains all `TwiteboApi` related tests.
 /// It will use default team name (`kDefaultTeamName`).
@@ -22,9 +22,13 @@ class ApiTests: XCTestCase
         let exp = expectation(description: "Team has been successful loaded.")
 
         TwiteboApi.shared.loadTeam(withName: kDefaultTeamName)
-        { _ in
-            exp.fulfill()
+        { team in
+            if team != nil, team?.name == kDefaultTeamName
+            {
+                exp.fulfill()
+            }
         }
+
         waitForExpectations(timeout: 2, handler: nil)
     }
 }

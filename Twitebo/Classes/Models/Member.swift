@@ -18,8 +18,8 @@ struct Member: Codable
     let game: String
     let language: String
     let name: String
-    let createdAt: Date
-    let updatedAt: Date
+    // let createdAt: Date
+    // let updatedAt: Date
     let logo: String?
     let videoBanner: String?
     let profileBanner: String?
@@ -39,8 +39,8 @@ struct Member: Codable
         case game
         case language
         case name
-        case createdAt = "created_at"
-        case updatedAt = "updated_at"
+        // case createdAt = "created_at"
+        // case updatedAt = "updated_at"
         case logo
         case videoBanner = "video_banner"
         case profileBanner = "profile_banner"
