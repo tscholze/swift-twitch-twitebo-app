@@ -1,0 +1,69 @@
+whitelist_rules: # rule identifiers that should be included.
+- block_based_kvo
+- class_delegate_protocol
+- compiler_protocol_init
+- contains_over_first_not_nil
+- convenience_type
+- discarded_notification_center_observer
+- discouraged_direct_init
+- empty_count
+- empty_string
+- fallthrough
+- fatal_error_message
+- first_where
+- force_cast
+- force_try
+- force_unwrapping
+- for_where
+- function_default_parameter_at_end
+- function_parameter_count
+- generic_type_name
+- is_disjoint
+- large_tuple
+- legacy_cggeometry_functions
+- legacy_nsgeometry_functions
+- legacy_constant
+- legacy_constructor
+- no_extension_access_modifier
+- overridden_super_call
+- prefixed_toplevel_constant
+- private_action
+- private_outlet
+- private_over_fileprivate
+- private_unit_test
+- prohibited_super_call
+- protocol_property_accessors_order
+- shorthand_operator
+- sorted_first_last
+- superfluous_disable_command
+- syntactic_sugar
+- type_name
+- unneeded_break_in_switch
+- unused_optional_binding
+- valid_ibinspectable
+- weak_delegate
+- xctfail_message
+
+## RULES THAT WE USE AS A DEBUG FEATURE
+## The following rules are used as one time enabled rules to check the source.
+## The rules are not meant to be always on because they are showing false positives results
+
+#- identifier_name
+
+# configurable rules can be customized from this configuration file
+# binary rules can set their severity level
+force_cast: warning # implicitly
+force_try:
+  severity: warning # explicitly
+
+
+included: # paths to include during linting. `--path` is ignored if present.
+  - "./"
+
+
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Carthage
+  - Pods
+
+
+reporter: "xcode" # reporter type (xcode, json, csv, checkstyle)

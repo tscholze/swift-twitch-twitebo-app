@@ -1,0 +1,12 @@
+# file options
+--exclude Pods,Carthage
+
+# format options
+--allman true
+--indent 4
+--ifdef noindent
+--wrapcollections beforefirst
+--self remove
+
+# disabled rules
+--disable strongOutlets
