@@ -18,7 +18,6 @@ struct Team: Decodable
     let displayName: String
     let logo: String
     let banner: String?
-    let background: String?
     var members: [Member]
 
     // MARK: - CodingKeys -
@@ -31,7 +30,6 @@ struct Team: Decodable
         case displayName = "display_name"
         case logo
         case banner
-        case background
         case members = "users"
     }
 }

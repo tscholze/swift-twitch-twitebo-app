@@ -14,4 +14,16 @@ extension UIColor
 {
     /// Brand color.
     static let brand = UIColor(named: "brand")
+
+    // Dark accent colors.
+    static let accentDark = UIColor(named: "accent-dark")
+
+    // Light accent colors.
+    static let accentLight = UIColor(named: "accent-light")
+
+    // Dark color.
+    static let dark = UIColor(named: "dark")
+
+    // Light color.
+    static let light = UIColor(named: "light")
 }
