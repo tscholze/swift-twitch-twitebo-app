@@ -22,6 +22,8 @@
 		4A7B0C52225CD7030045C03D /* ApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7B0C51225CD7030045C03D /* ApiTests.swift */; };
 		4A7B0C54225CD9CC0045C03D /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7B0C53225CD9CC0045C03D /* Member.swift */; };
 		4A943DEE22608AAC00355CE6 /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A943DED22608AAC00355CE6 /* Stream.swift */; };
+		4A943DF02260B81D00355CE6 /* UIColor+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A943DEF2260B81D00355CE6 /* UIColor+Colors.swift */; };
+		4A943DF22260BAFB00355CE6 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A943DF12260BAFB00355CE6 /* Colors.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		4A7B0C51225CD7030045C03D /* ApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTests.swift; sourceTree = "<group>"; };
 		4A7B0C53225CD9CC0045C03D /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		4A943DED22608AAC00355CE6 /* Stream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stream.swift; sourceTree = "<group>"; };
+		4A943DEF2260B81D00355CE6 /* UIColor+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Colors.swift"; sourceTree = "<group>"; };
+		4A943DF12260BAFB00355CE6 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,7 @@
 			children = (
 				443E940D225D014200167C8C /* UIImageView+Url.swift */,
 				443E9416225D068900167C8C /* UIView+Nib.swift */,
+				4A943DEF2260B81D00355CE6 /* UIColor+Colors.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -135,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				4A7B0C19225C9ACF0045C03D /* Assets.xcassets */,
+				4A943DF12260BAFB00355CE6 /* Colors.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -278,6 +284,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A943DF22260BAFB00355CE6 /* Colors.xcassets in Resources */,
 				4A7B0C1D225C9ACF0045C03D /* LaunchScreen.storyboard in Resources */,
 				443E9415225D04D500167C8C /* LoadingView.xib in Resources */,
 				4A7B0C1A225C9ACF0045C03D /* Assets.xcassets in Resources */,
@@ -342,6 +349,7 @@
 				443E9410225D029700167C8C /* TeamViewController.swift in Sources */,
 				443E940E225D014200167C8C /* UIImageView+Url.swift in Sources */,
 				4A7B0C54225CD9CC0045C03D /* Member.swift in Sources */,
+				4A943DF02260B81D00355CE6 /* UIColor+Colors.swift in Sources */,
 				4A7B0C41225C9FDC0045C03D /* Configuration.swift in Sources */,
 				4A7B0C3D225C9E970045C03D /* TwiteboApi.swift in Sources */,
 				4A7B0C13225C9ACE0045C03D /* AppDelegate.swift in Sources */,
