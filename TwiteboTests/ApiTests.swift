@@ -23,8 +23,20 @@ class ApiTests: XCTestCase
 
         TwiteboApi.shared.loadTeam(withName: kDefaultTeamName)
         { team in
+            // Requirements to fullfill the test:
+            // 1. Team has to be set
+            // 2. The team has to be the team that should be requested
+            // 3. he enriched online status has to be set
             if team != nil, team?.name == kDefaultTeamName
             {
+                for member in team?.members ?? []
+                {
+                    if member.isOnline == nil
+                    {
+                        XCTFail("`isOnline` has to be set")
+                    }
+                }
+
                 exp.fulfill()
             }
         }

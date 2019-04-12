@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Team: Codable
+struct Team: Codable
 {
     // MARK: - Internal properties -
 
@@ -19,7 +19,7 @@ class Team: Codable
     let logo: String
     let banner: String?
     let background: String?
-    let members: [Member]
+    var members: [Member]
 
     // MARK: - CodingKeys -
 

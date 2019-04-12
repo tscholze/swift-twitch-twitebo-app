@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Member: Codable
+class Member: Codable
 {
     // MARK: - Internal properties -
 
