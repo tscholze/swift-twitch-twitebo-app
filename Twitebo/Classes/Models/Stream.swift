@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: - Streams -
 
-struct Streams: Codable
+struct Streams: Decodable
 {
     // MARK: - Internal properties -
 
@@ -19,7 +19,7 @@ struct Streams: Codable
 
 // MARK: - Stream -
 
-struct Stream: Codable
+struct Stream: Decodable
 {
     // MARK: - Internal properties -
 

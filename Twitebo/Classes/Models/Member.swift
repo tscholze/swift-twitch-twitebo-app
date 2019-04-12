@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Member: Codable
+class Member: Decodable
 {
     // MARK: - Internal properties -
 

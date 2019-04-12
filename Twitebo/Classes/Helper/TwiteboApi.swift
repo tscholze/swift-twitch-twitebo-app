@@ -38,7 +38,7 @@ class TwiteboApi
         get(fromEndpoint: endpoint)
         { [weak self] (team: Team?) in
             // Enrich data with additonal requests.
-            self?.loadOnlineStatusFor(team: team)
+            self?.loadOnlineStatus(forTeam: team)
             { team in
                 completion(team)
             }
@@ -50,11 +50,11 @@ class TwiteboApi
     /// Loads online status for given team's member.
     ///
     /// - Parameters:
-    ///   - name: Team of the member which will be looked for.
-    ///   - completion: Completion block with optional found team.
-    private func loadOnlineStatusFor(team: Team?, _ completion: @escaping (Team?) -> Void)
+    ///   - team: Team of the member which will be looked for.
+    ///   - completion: Completion block with optional enriched team.
+    private func loadOnlineStatus(forTeam team: Team?, _ completion: @escaping (Team?) -> Void)
     {
-        // Check if team has members.
+        // Check if team has members. Elsewise complete with nil.
         guard let members = team?.members else
         {
             completion(team)
@@ -131,7 +131,7 @@ class TwiteboApi
                 return
             }
 
-            // Check if required data is present
+            // Check if required data is present.
             guard let data = data else
             {
                 print("No data found.")
@@ -152,6 +152,7 @@ class TwiteboApi
                 print(String(data: data, encoding: .utf8) ?? "<no data found>")
                 print("---")
                 print("An error occured: '\(error)'")
+                print("---")
             }
         }.resume()
     }

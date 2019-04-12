@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Team: Codable
+struct Team: Decodable
 {
     // MARK: - Internal properties -
 
