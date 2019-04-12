@@ -19,28 +19,33 @@ class ApiTests: XCTestCase
     /// Tests the Api.loadTeam(name:) method.
     func testLoadTeam_IsAsExpected_IfNoErrorsOccure()
     {
+        // Test's expection
         let exp = expectation(description: "Team has been successful loaded.")
 
+        // Load team from api.
         TwiteboApi.shared.loadTeam(withName: kDefaultTeamName)
         { team in
             // Requirements to fullfill the test:
             // 1. Team has to be set
             // 2. The team has to be the team that should be requested
-            // 3. he enriched online status has to be set
-            if team != nil, team?.name == kDefaultTeamName
+            if let team = team, team.name == kDefaultTeamName
             {
-                for member in team?.members ?? []
+                // 3. The enriched online status has to be set
+                if team.members.contains(where: { $0.isOnline == nil })
                 {
-                    if member.isOnline == nil
-                    {
-                        XCTFail("`isOnline` has to be set")
-                    }
+                    XCTFail("Not all online status values are set")
                 }
-
-                exp.fulfill()
             }
+            else
+            {
+                XCTFail("Team is nil or invalid by name")
+            }
+
+            // If everything is ok, expection is fullfilled.
+            exp.fulfill()
         }
 
+        // Set test timeout.
         waitForExpectations(timeout: 2, handler: nil)
     }
 }
