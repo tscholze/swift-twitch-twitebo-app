@@ -10,6 +10,8 @@ import Foundation
 
 struct Member: Codable
 {
+    // MARK: - Internal properties -
+
     let id: String
     let isMature: Bool
     let status: String
@@ -18,8 +20,6 @@ struct Member: Codable
     let game: String
     let language: String
     let name: String
-    // let createdAt: Date
-    // let updatedAt: Date
     let logo: String?
     let videoBanner: String?
     let profileBanner: String?
@@ -28,6 +28,12 @@ struct Member: Codable
     let url: String
     let views: Int
     let followers: Int
+
+    // MARK: - Additional properties -
+
+    var isOnline: Bool?
+
+    // MARK: - CodingKeys -
 
     enum CodingKeys: String, CodingKey
     {
@@ -39,8 +45,6 @@ struct Member: Codable
         case game
         case language
         case name
-        // case createdAt = "created_at"
-        // case updatedAt = "updated_at"
         case logo
         case videoBanner = "video_banner"
         case profileBanner = "profile_banner"
@@ -49,5 +53,6 @@ struct Member: Codable
         case url
         case views
         case followers
+        case isOnline
     }
 }

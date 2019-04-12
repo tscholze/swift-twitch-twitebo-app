@@ -22,4 +22,7 @@ enum Configuration
 
     /// Endpoint for the teams request.
     static let twitchApiTeamsEndpoint = "https://api.twitch.tv/kraken/teams"
+
+    /// Endpoint for the streams request.
+    static let twitchApiStreamsEndpoint = "https://api.twitch.tv/helix/streams"
 }

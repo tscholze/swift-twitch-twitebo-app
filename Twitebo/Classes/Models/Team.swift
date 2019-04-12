@@ -8,18 +8,20 @@
 
 import Foundation
 
-struct Team: Codable
+class Team: Codable
 {
+    // MARK: - Internal properties -
+
     let id: Int
     let name: String
     let info: String
     let displayName: String
-    // let createdAt: Date
-    // let updatedAt: Date
     let logo: String
     let banner: String?
     let background: String?
     let members: [Member]
+
+    // MARK: - CodingKeys -
 
     enum CodingKeys: String, CodingKey
     {
@@ -27,8 +29,6 @@ struct Team: Codable
         case name
         case info
         case displayName = "display_name"
-        // case createdAt = "created_at"
-        // case updatedAt = "updated_at"
         case logo
         case banner
         case background

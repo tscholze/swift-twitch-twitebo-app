@@ -24,15 +24,83 @@ class TwiteboApi
 
     // MARK: - Internal helpers -
 
+    /// Loads `Team` object from Twitch API and enriches its data.
+    ///
+    /// - Parameters:
+    ///   - name: Team name that will be loaded.
+    ///   - completion: Completion block with optional found team.
     func loadTeam(withName name: String, _ completion: @escaping (Team?) -> Void)
     {
         // Assemble url.
         let endpoint = Configuration.twitchApiTeamsEndpoint + "/" + name
 
+        // Get data frp, first endpoint.
+        get(fromEndpoint: endpoint)
+        { [weak self] (team: Team?) in
+            // Enrich data with additonal requests.
+            self?.loadOnlineStatusFor(team: team)
+            { team in
+                completion(team)
+            }
+        }
+    }
+
+    // MARK: - Private helper -
+
+    /// Loads online status for given team's member.
+    ///
+    /// - Parameters:
+    ///   - name: Team of the member which will be looked for.
+    ///   - completion: Completion block with optional found team.
+    private func loadOnlineStatusFor(team: Team?, _ completion: @escaping (Team?) -> Void)
+    {
+        // Check if team has members.
+        guard let members = team?.members else
+        {
+            completion(team)
+            return
+        }
+
+        // Build parameter string with each user id of member
+        // E.g. exmaple.com?user_id=123&user_id=456
+        var parameters = "?"
+        members.forEach { parameters += "user_id=\($0.id)&" }
+
+        // Assemble url.
+        let endpoint = Configuration.twitchApiStreamsEndpoint + parameters
+
+        // Get response from server
+        get(fromEndpoint: endpoint)
+        { (streams: Streams?) in
+            // Get online ids.
+            // The response does only contain userIds that are online.
+            let onlineUserIds = streams?.data.compactMap { $0.userId } ?? []
+
+            // Loop over members and set online status
+            for member in team?.members ?? []
+            {
+                member.isOnline = onlineUserIds.contains(member.id)
+            }
+
+            // Call completion block with enriched data.
+            completion(team)
+        }
+    }
+
+    /// Performs a get request for given url and tries to parse the responded
+    /// json data into given `Decodeable` object type.
+    ///
+    /// - Parameters:
+    ///   - endpoint: Endpoint which the get request will be performed.
+    ///   - completion: Optional parsed object.
+    private func get<T: Decodable>(fromEndpoint endpoint: String, completion: @escaping ((T?) -> Void))
+    {
         // Create url.
         guard let url = URL(string: endpoint) else
         {
-            fatalError("Could not build valid teams endpoint url")
+            print("Could not build valid teams endpoint url")
+            completion(nil)
+            return
         }
 
         // Create request from url.
@@ -63,6 +131,7 @@ class TwiteboApi
                 return
             }
 
+            // Check if required data is present
             guard let data = data else
             {
                 print("No data found.")
@@ -70,11 +139,13 @@ class TwiteboApi
                 return
             }
 
+            // Try to parse the received data into given object type.
             do
             {
-                let team = try self?.decoder.decode(Team.self, from: data)
-                completion(team)
+                let container = try self?.decoder.decode(T.self, from: data)
+                completion(container)
             }
+            // Log error in case of an exception.
             catch
             {
                 print("---")
@@ -82,8 +153,6 @@ class TwiteboApi
                 print("---")
                 print("An error occured: '\(error)'")
             }
-
-            completion(nil)
         }.resume()
     }
 }
