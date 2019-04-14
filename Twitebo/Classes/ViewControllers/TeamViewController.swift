@@ -77,7 +77,7 @@ class TeamViewController: UIViewController
                 self.teamNameLabel.text = team.displayName
 
                 // TODO: Escape info text (its html)
-                self.teamInfoLabel.text = team.info
+                self.teamInfoLabel.attributedText = team.info.htmlAsAttributedString
 
                 // Check if team banner is available.
                 //  - Yes: Load it from url.

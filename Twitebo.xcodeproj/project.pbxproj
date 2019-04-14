@@ -15,6 +15,7 @@
 		443E9419226103B300167C8C /* MembersCollectionViewControlller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443E9418226103B300167C8C /* MembersCollectionViewControlller.swift */; };
 		443E941C2261068E00167C8C /* MemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443E941B2261068E00167C8C /* MemberCell.swift */; };
 		443E941E226384F700167C8C /* UIImage+Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443E941D226384F700167C8C /* UIImage+Images.swift */; };
+		443E9420226386EB00167C8C /* String+Html.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443E941F226386EB00167C8C /* String+Html.swift */; };
 		4A7B0C13225C9ACE0045C03D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7B0C12225C9ACE0045C03D /* AppDelegate.swift */; };
 		4A7B0C18225C9ACE0045C03D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A7B0C16225C9ACE0045C03D /* Main.storyboard */; };
 		4A7B0C1A225C9ACF0045C03D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A7B0C19225C9ACF0045C03D /* Assets.xcassets */; };
@@ -48,6 +49,7 @@
 		443E9418226103B300167C8C /* MembersCollectionViewControlller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersCollectionViewControlller.swift; sourceTree = "<group>"; };
 		443E941B2261068E00167C8C /* MemberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberCell.swift; sourceTree = "<group>"; };
 		443E941D226384F700167C8C /* UIImage+Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Images.swift"; sourceTree = "<group>"; };
+		443E941F226386EB00167C8C /* String+Html.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Html.swift"; sourceTree = "<group>"; };
 		4A7B0C0F225C9ACE0045C03D /* Twitebo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twitebo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A7B0C12225C9ACE0045C03D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A7B0C17225C9ACE0045C03D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				443E9416225D068900167C8C /* UIView+Nib.swift */,
 				4A943DEF2260B81D00355CE6 /* UIColor+Colors.swift */,
 				443E941D226384F700167C8C /* UIImage+Images.swift */,
+				443E941F226386EB00167C8C /* String+Html.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 			files = (
 				4A7B0C3F225C9EC80045C03D /* Team.swift in Sources */,
 				443E941E226384F700167C8C /* UIImage+Images.swift in Sources */,
+				443E9420226386EB00167C8C /* String+Html.swift in Sources */,
 				443E9410225D029700167C8C /* TeamViewController.swift in Sources */,
 				443E940E225D014200167C8C /* UIImageView+Url.swift in Sources */,
 				4A7B0C54225CD9CC0045C03D /* Member.swift in Sources */,

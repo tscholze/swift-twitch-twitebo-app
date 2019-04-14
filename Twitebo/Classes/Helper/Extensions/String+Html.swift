@@ -1,0 +1,43 @@
+//
+//  String+Html.swift
+//  Twitebo
+//
+//  Created by Tobias Scholze on 14.04.19.
+//  Copyright © 2019 Tobias Scholze. All rights reserved.
+//
+
+import UIKit
+
+extension String
+{
+    /// Gets a html-based string as an `NSAttributedString`.
+    /// Inspired by: https://medium.com/swift2go/swift-how-to-convert-html-using-nsattributedstring-8c6ffeb7046f
+    var htmlAsAttributedString: NSAttributedString
+    {
+        // Check if raw data is valid.
+        guard let stringData = data(using: .utf8) else
+        {
+            return NSAttributedString()
+        }
+
+        // Try to convert string.
+        do
+        {
+            let options: [NSAttributedString.DocumentReadingOptionKey: Any] = [
+                NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html,
+                NSAttributedString.DocumentReadingOptionKey.characterEncoding: String.Encoding.utf8.rawValue,
+            ]
+
+            return try NSAttributedString(data: stringData,
+                                          options: options,
+                                          documentAttributes: nil)
+        }
+
+        // In case of an exception, return an empty attributed string.
+        catch
+        {
+            print("An error occured during html to attributed string convertions")
+            return NSAttributedString()
+        }
+    }
+}
