@@ -76,7 +76,7 @@ class TeamViewController: UIViewController
                 // Set text values
                 self.teamNameLabel.text = team.displayName
 
-                // TODO: Escape info text (its html)
+                // TODO: 1. replace Lable with TextView, 2. style it.
                 self.teamInfoLabel.attributedText = team.info.htmlAsAttributedString
 
                 // Check if team banner is available.
