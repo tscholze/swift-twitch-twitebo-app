@@ -8,6 +8,9 @@
 
 import UIKit
 
+/// `TeamViewController` provides the functionallity to search a
+/// team and show all team-related information.
+/// It also contains information about the team members.
 class TeamViewController: UIViewController
 {
     // MARK: - Outlets-
@@ -19,7 +22,13 @@ class TeamViewController: UIViewController
 
     // MARK: - Private properties -
 
+    // Fullscreen blocking loading view.
     private let loadingView = LoadingView.instantiateFromNib()
+
+    // Collection view controller that will represent all team members.
+    private var membersViewController: MembersCollectionViewControlller?
+
+    // TODO: Add another cvc that only represents online members.
 
     // MARK: - View life cycle -
 
@@ -30,6 +39,15 @@ class TeamViewController: UIViewController
         setup()
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender _: Any?)
+    {
+        // Check if members view controller
+        if let membersViewController = segue.destination as? MembersCollectionViewControlller
+        {
+            self.membersViewController = membersViewController
+        }
+    }
+
     // MARK: - Private helper -
 
     /// Will setup the view with all required data.
@@ -38,7 +56,7 @@ class TeamViewController: UIViewController
         // Clear all labels from development values.
         teamNameLabel.text = nil
         teamInfoLabel.text = nil
-        
+
         // Get values from server.
         TwiteboApi.shared.loadTeam(withName: "livecoders")
         { [weak self] team in
@@ -78,6 +96,9 @@ class TeamViewController: UIViewController
                 {
                     self.teamLogoImageView.image(fromUrl: logoUrl)
                 }
+
+                // Set received team to sub view controllers
+                self.membersViewController?.setup(forTeam: team)
             }
         }
     }
