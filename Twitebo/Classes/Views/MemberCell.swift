@@ -34,7 +34,7 @@ class MemberCell: UICollectionViewCell
         contentView.layer.cornerRadius = 20
 
         layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOffset = CGSize(width: 0, height: -1)
+        layer.shadowOffset = CGSize(width: 0, height: 0)
         layer.shadowRadius = 4.0
         layer.shadowOpacity = 0.75
         layer.masksToBounds = false

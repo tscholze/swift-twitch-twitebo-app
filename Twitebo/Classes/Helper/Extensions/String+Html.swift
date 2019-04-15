@@ -16,7 +16,7 @@ extension String
     /// `NSAttributedString` with the app's style.
     private var prefixedHtmlStyling: String
     {
-        return "<style>body{ font-size: 14px; font-family: -apple-system,system-ui}</style>"
+        return "<style>body{ padding: 0; margin: 0; font-size: 14px; font-family: -apple-system,system-ui}</style>"
     }
 
     // MARK: - Internal prperties -

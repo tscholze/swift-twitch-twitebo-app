@@ -20,6 +20,7 @@ class TeamViewController: UIViewController
     @IBOutlet private weak var teamLogoImageView: UIImageView!
     @IBOutlet private weak var teamNameLabel: UILabel!
     @IBOutlet private weak var teamInfoTextView: UITextView!
+    @IBOutlet private weak var footerView: UIView!
 
     // MARK: - Private properties -
 
@@ -55,11 +56,18 @@ class TeamViewController: UIViewController
     private func setup()
     {
         // Setup team view
-        let gradientLayer: CAGradientLayer = CAGradientLayer()
-        gradientLayer.colors = UIColor.brandGradient as [Any]
-        gradientLayer.locations = [0.0, 0.7]
-        gradientLayer.frame = teamView.bounds
-        teamView.layer.insertSublayer(gradientLayer, at: 0)
+        let gradientTopLayer: CAGradientLayer = CAGradientLayer()
+        gradientTopLayer.colors = UIColor.brandGradient as [Any]
+        gradientTopLayer.locations = [0.0, 0.7]
+        gradientTopLayer.frame = teamView.bounds
+        teamView.layer.insertSublayer(gradientTopLayer, at: 0)
+
+        // Setup footer view
+        let gradientBottomLayer: CAGradientLayer = CAGradientLayer()
+        gradientBottomLayer.colors = UIColor.brandGradient.reversed() as [Any]
+        gradientBottomLayer.locations = [0.0, 1.0]
+        gradientBottomLayer.frame = footerView.bounds
+        footerView.layer.insertSublayer(gradientBottomLayer, at: 0)
 
         // Setup team info view
         teamInfoTextView.contentOffset = CGPoint(x: 0, y: 0)
@@ -86,9 +94,7 @@ class TeamViewController: UIViewController
             {
                 // Set text values
                 self.teamNameLabel.text = team.displayName
-
-                // TODO: 1. replace Lable with TextView, 2. style it.
-                self.teamInfoTextView.attributedText = team.info.htmlAsAttributedString
+                self.teamInfoTextView.attributedText = team.info.replacingOccurrences(of: "\n", with: "").htmlAsAttributedString
 
                 // Check if team banner is available.
                 //  - Yes: Load it from url.
