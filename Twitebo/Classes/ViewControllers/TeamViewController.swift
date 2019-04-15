@@ -28,7 +28,7 @@ class TeamViewController: UIViewController
     private let loadingView = LoadingView.instantiateFromNib()
 
     // Collection view controller that will represent all team members.
-    private var membersViewController: MembersCollectionViewControlller?
+    private var membersViewController: MembersCollectionViewController?
 
     // TODO: Add another cvc that only represents online members.
 
@@ -44,9 +44,10 @@ class TeamViewController: UIViewController
     override func prepare(for segue: UIStoryboardSegue, sender _: Any?)
     {
         // Check if members view controller
-        if let membersViewController = segue.destination as? MembersCollectionViewControlller
+        if let membersViewController = segue.destination as? MembersCollectionViewController
         {
             self.membersViewController = membersViewController
+            self.membersViewController?.delegate = self
         }
     }
 
@@ -132,5 +133,23 @@ class TeamViewController: UIViewController
                 self.loadingView.dismiss()
             }
         }
+    }
+}
+
+extension TeamViewController: MembersCollectionViewControllerDelegate
+{
+    func membersCollectionViewControllerDidSelectMember(_ member: Member)
+    {
+        guard let streamVc = storyboard?.instantiateViewController(withIdentifier: "StreamScene")
+            as? StreamViewController else
+        {
+            return
+        }
+
+        // Set selected member to the instantiated view controller.
+        streamVc.member = member
+
+        // Show member.
+        show(streamVc, sender: nil)
     }
 }

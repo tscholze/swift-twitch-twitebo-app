@@ -1,5 +1,5 @@
 //
-//  MembersCollectionViewControlller.swift
+//  MembersCollectionViewController.swift
 //  Twitebo
 //
 //  Created by Tobias Scholze on 12.04.19.
@@ -8,11 +8,25 @@
 
 import UIKit
 
-/// `MembersCollectionViewControlller` is responsable for presenting a
-/// scrollable list of team members.
-class MembersCollectionViewControlller: UICollectionViewController
+// MARK: - MembersCollectionViewControllerDelegate -
+
+/// `MembersCollectionViewControllerDelegate` can be adopted by an object to get notified on changes in `MembersCollectionViewController`.
+protocol MembersCollectionViewControllerDelegate: AnyObject
 {
-    // MARK: - Internal properties -
+    /// Teels the delegate that a member has been selected within a
+    /// `MembersCollectionViewController`.
+    ///
+    /// - Parameter member: Selected member.
+    func membersCollectionViewControllerDidSelectMember(_ member: Member)
+}
+
+// MARK: - MembersCollectionViewController -
+
+/// `MembersCollectionViewController` is responsable for presenting a
+/// scrollable list of team members.
+class MembersCollectionViewController: UICollectionViewController
+{
+    // MARK: - Static internal properties -
 
     /// Collection view item width.
     static var itemWidth = 200
@@ -22,6 +36,11 @@ class MembersCollectionViewControlller: UICollectionViewController
 
     // Collection view item intertem spacing.
     static var itemSpacing: CGFloat = 20
+
+    // MARK: - Internal properties -
+
+    /// Controller's delegate.
+    weak var delegate: MembersCollectionViewControllerDelegate?
 
     // MARK: - Private properties -
 
@@ -55,23 +74,23 @@ class MembersCollectionViewControlller: UICollectionViewController
 
 // MARK: - UICollectionViewDelegateFlowLayout -
 
-extension MembersCollectionViewControlller: UICollectionViewDelegateFlowLayout
+extension MembersCollectionViewController: UICollectionViewDelegateFlowLayout
 {
     func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt _: IndexPath) -> CGSize
     {
-        return CGSize(width: MembersCollectionViewControlller.itemWidth,
-                      height: MembersCollectionViewControlller.itemHeight + 4)
+        return CGSize(width: MembersCollectionViewController.itemWidth,
+                      height: MembersCollectionViewController.itemHeight + 4)
     }
 
     func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, minimumLineSpacingForSectionAt _: Int) -> CGFloat
     {
-        return MembersCollectionViewControlller.itemSpacing
+        return MembersCollectionViewController.itemSpacing
     }
 }
 
 // MARK: - UICollectionViewDataSource -
 
-extension MembersCollectionViewControlller
+extension MembersCollectionViewController
 {
     override func numberOfSections(in _: UICollectionView) -> Int
     {
@@ -98,10 +117,18 @@ extension MembersCollectionViewControlller
 
 // MARK: - UICollectionViewDelegate -
 
-extension MembersCollectionViewControlller
+extension MembersCollectionViewController
 {
     override func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath)
     {
-        print("Tapped on item: \(indexPath.item)")
+        // Ensure that member is available.
+        guard let member = team?.members[indexPath.item] else
+        {
+            print("No member found.")
+            return
+        }
+
+        // Call delegate.
+        delegate?.membersCollectionViewControllerDidSelectMember(member)
     }
 }

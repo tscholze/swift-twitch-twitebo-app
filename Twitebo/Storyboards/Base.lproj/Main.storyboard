@@ -128,6 +128,7 @@
                             <constraint firstAttribute="top" secondItem="2VM-vP-0D8" secondAttribute="top" id="ead-25-9cg"/>
                             <constraint firstAttribute="trailing" secondItem="2VM-vP-0D8" secondAttribute="trailing" id="sDk-aa-B9V"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="d4e-es-4EU"/>
                     </view>
                     <size key="freeformSize" width="414" height="1000"/>
                     <connections>
@@ -150,7 +151,20 @@
                     <view key="view" contentMode="scaleToFill" id="aaE-aW-XE4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VGF-Md-wlT">
+                                <rect key="frame" x="348" y="64" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="onCloseButtonTapped:" destination="jSN-bg-3e4" eventType="touchUpInside" id="ssF-9x-sCv"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="BVB-FQ-oq3" firstAttribute="trailing" secondItem="VGF-Md-wlT" secondAttribute="trailing" constant="20" id="8gy-jQ-KY0"/>
+                            <constraint firstItem="VGF-Md-wlT" firstAttribute="top" secondItem="BVB-FQ-oq3" secondAttribute="top" constant="20" id="A30-nH-LLo"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="BVB-FQ-oq3"/>
                     </view>
                 </viewController>
@@ -158,10 +172,10 @@
             </objects>
             <point key="canvasLocation" x="235" y="719"/>
         </scene>
-        <!--Members Collection View Controlller-->
+        <!--Members Collection View Controller-->
         <scene sceneID="Hr0-R0-1nv">
             <objects>
-                <collectionViewController id="OjH-0M-Lth" customClass="MembersCollectionViewControlller" customModule="Twitebo" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController id="OjH-0M-Lth" customClass="MembersCollectionViewController" customModule="Twitebo" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="KCV-nB-6Kd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="220"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

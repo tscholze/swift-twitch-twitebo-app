@@ -14,12 +14,23 @@ class StreamViewController: UIViewController
 
     private let loadingView = LoadingView.instantiateFromNib()
 
+    // MARK: - Internal properties -
+
+    /// Underlying required member.
+    var member: Member?
+
     // MARK: - View life cycle -
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
+    }
 
-        loadingView.present(on: view)
+    // MARK: - Actions -
+
+    @IBAction
+    private func onCloseButtonTapped(_: Any)
+    {
+        presentingViewController?.dismiss(animated: true)
     }
 }
