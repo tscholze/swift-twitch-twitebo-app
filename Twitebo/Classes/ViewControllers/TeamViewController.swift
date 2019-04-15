@@ -55,6 +55,8 @@ class TeamViewController: UIViewController
     /// Will setup the view with all required data.
     private func setup()
     {
+        view.translatesAutoresizingMaskIntoConstraints = false
+
         // Setup team view
         let gradientTopLayer: CAGradientLayer = CAGradientLayer()
         gradientTopLayer.colors = UIColor.brandGradient as [Any]
@@ -76,16 +78,25 @@ class TeamViewController: UIViewController
         teamNameLabel.text = nil
         teamInfoTextView.text = nil
 
+        // Show loading view
+        loadingView.present(on: view)
+
         // Get values from server.
         TwiteboApi.shared.loadTeam(withName: "livecoders")
         { [weak self] team in
+            // Ensure self exists
+            guard let self = self else { return }
 
-            // Check if required data is set.
-            guard let self = self,
-                let team = team else
+            // Ensurerequired data is set.
+
+            guard let team = team else
             {
-                // TODO: Handle this state
-                print("No team found")
+                DispatchQueue.main.async
+                {
+                    // TODO: Handle this state
+                    print("No team found")
+                    self.loadingView.dismiss()
+                }
                 return
             }
 
@@ -116,6 +127,9 @@ class TeamViewController: UIViewController
 
                 // Set received team to sub view controllers
                 self.membersViewController?.setup(forTeam: team)
+
+                // Dismiss loadingview
+                self.loadingView.dismiss()
             }
         }
     }

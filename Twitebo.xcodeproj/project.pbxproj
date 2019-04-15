@@ -16,6 +16,7 @@
 		443E941C2261068E00167C8C /* MemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443E941B2261068E00167C8C /* MemberCell.swift */; };
 		443E941E226384F700167C8C /* UIImage+Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443E941D226384F700167C8C /* UIImage+Images.swift */; };
 		443E9420226386EB00167C8C /* String+Html.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443E941F226386EB00167C8C /* String+Html.swift */; };
+		4A5003B82264B49B00A099F5 /* StreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5003B72264B49B00A099F5 /* StreamViewController.swift */; };
 		4A7B0C13225C9ACE0045C03D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7B0C12225C9ACE0045C03D /* AppDelegate.swift */; };
 		4A7B0C18225C9ACE0045C03D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A7B0C16225C9ACE0045C03D /* Main.storyboard */; };
 		4A7B0C1A225C9ACF0045C03D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A7B0C19225C9ACF0045C03D /* Assets.xcassets */; };
@@ -50,6 +51,7 @@
 		443E941B2261068E00167C8C /* MemberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberCell.swift; sourceTree = "<group>"; };
 		443E941D226384F700167C8C /* UIImage+Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Images.swift"; sourceTree = "<group>"; };
 		443E941F226386EB00167C8C /* String+Html.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Html.swift"; sourceTree = "<group>"; };
+		4A5003B72264B49B00A099F5 /* StreamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamViewController.swift; sourceTree = "<group>"; };
 		4A7B0C0F225C9ACE0045C03D /* Twitebo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twitebo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A7B0C12225C9ACE0045C03D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A7B0C17225C9ACE0045C03D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 			children = (
 				443E940F225D029700167C8C /* TeamViewController.swift */,
 				443E9418226103B300167C8C /* MembersCollectionViewControlller.swift */,
+				4A5003B72264B49B00A099F5 /* StreamViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A5003B82264B49B00A099F5 /* StreamViewController.swift in Sources */,
 				4A7B0C3F225C9EC80045C03D /* Team.swift in Sources */,
 				443E941E226384F700167C8C /* UIImage+Images.swift in Sources */,
 				443E9420226386EB00167C8C /* String+Html.swift in Sources */,

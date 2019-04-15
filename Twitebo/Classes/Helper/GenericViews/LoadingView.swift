@@ -16,6 +16,16 @@ class LoadingView: UIView
 
     @IBOutlet private weak var imageView: UIImageView!
 
+    // MARK: - Life view cycle -
+
+    override func awakeFromNib()
+    {
+        super.awakeFromNib()
+
+        // Required to align the view on `present`call.
+        translatesAutoresizingMaskIntoConstraints = false
+    }
+
     // MARK: - Helper -
 
     /// Presents the loadingview on a given view or without animation.
@@ -68,6 +78,7 @@ class LoadingView: UIView
                                      attribute: .top,
                                      multiplier: 1,
                                      constant: 0)
+        top.isActive = true
 
         let leading = NSLayoutConstraint(item: self,
                                          attribute: .leading,
@@ -76,6 +87,7 @@ class LoadingView: UIView
                                          attribute: .leading,
                                          multiplier: 1,
                                          constant: 0)
+        leading.isActive = true
 
         let trailing = NSLayoutConstraint(item: self,
                                           attribute: .trailing,
@@ -84,6 +96,7 @@ class LoadingView: UIView
                                           attribute: .trailing,
                                           multiplier: 1,
                                           constant: 0)
+        trailing.isActive = true
 
         let bottom = NSLayoutConstraint(item: self,
                                         attribute: .bottom,
@@ -92,10 +105,6 @@ class LoadingView: UIView
                                         attribute: .bottom,
                                         multiplier: 1,
                                         constant: 0)
-
-        top.isActive = true
-        leading.isActive = true
-        trailing.isActive = true
         bottom.isActive = true
     }
 
@@ -131,12 +140,16 @@ class LoadingView: UIView
 
     private func startAnimation()
     {
+        // Ensure that only one animation is running
         stopAnimation()
 
+        // Create circle-spinning animation
         let animation = CABasicAnimation(keyPath: "transform.rotation.z")
+        /// 360 degrees
         animation.toValue = 2.0 * .pi
+        /// One spin takes thre seconds
         animation.duration = 3
-        animation.isCumulative = true
+        // Spin forver
         animation.repeatCount = Float.greatestFiniteMagnitude
         imageView.layer.add(animation, forKey: "rotationAnimation")
     }
