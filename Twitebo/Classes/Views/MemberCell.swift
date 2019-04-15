@@ -16,6 +16,7 @@ class MemberCell: UICollectionViewCell
 
     @IBOutlet private weak var logoImageView: UIImageView!
     @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var statusLabel: UILabel!
 
     // MARK: - Interal properties -
 
@@ -23,6 +24,22 @@ class MemberCell: UICollectionViewCell
     static var identifier = "MemberCell"
 
     // MARK: - View life cycle -
+
+    override func awakeFromNib()
+    {
+        super.awakeFromNib()
+
+        // Setup cell's styling.
+        contentView.layer.masksToBounds = true
+        contentView.layer.cornerRadius = 20
+
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = CGSize(width: 0, height: -1)
+        layer.shadowRadius = 4.0
+        layer.shadowOpacity = 0.75
+        layer.masksToBounds = false
+        layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: contentView.layer.cornerRadius).cgPath
+    }
 
     override func prepareForReuse()
     {
@@ -38,18 +55,6 @@ class MemberCell: UICollectionViewCell
     /// - Parameter member: Underlying member.
     func setup(for member: Member)
     {
-        contentView.layer.masksToBounds = true
-        contentView.layer.cornerRadius = 20
-        contentView.layer.borderWidth = 1.0
-        contentView.layer.borderColor = UIColor.clear.cgColor
-
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOffset = CGSize(width: 1, height: 1)
-        layer.shadowRadius = 2.0
-        layer.shadowOpacity = 0.25
-        layer.masksToBounds = false
-        layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: contentView.layer.cornerRadius).cgPath
-
         // Load image.
         if let logo = member.logo,
             let url = URL(string: logo)
@@ -63,5 +68,6 @@ class MemberCell: UICollectionViewCell
 
         // Set text values.
         nameLabel.text = member.displayName
+        statusLabel.text = member.status
     }
 }

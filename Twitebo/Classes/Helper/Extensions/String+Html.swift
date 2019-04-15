@@ -10,12 +10,25 @@ import UIKit
 
 extension String
 {
+    // MARK: - Private properties -
+
+    /// Gets the html `<style>` tag to unify html-based
+    /// `NSAttributedString` with the app's style.
+    private var prefixedHtmlStyling: String
+    {
+        return "<style>body{ font-size: 14px; font-family: -apple-system,system-ui}</style>"
+    }
+
+    // MARK: - Internal prperties -
+
     /// Gets a html-based string as an `NSAttributedString`.
     /// Inspired by: https://medium.com/swift2go/swift-how-to-convert-html-using-nsattributedstring-8c6ffeb7046f
     var htmlAsAttributedString: NSAttributedString
     {
         // Check if raw data is valid.
-        guard let stringData = data(using: .utf8) else
+        let styledString = prefixedHtmlStyling + self
+
+        guard let stringData = styledString.data(using: .utf8) else
         {
             return NSAttributedString()
         }

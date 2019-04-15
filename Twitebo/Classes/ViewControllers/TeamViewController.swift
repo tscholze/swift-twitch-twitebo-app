@@ -15,10 +15,11 @@ class TeamViewController: UIViewController
 {
     // MARK: - Outlets-
 
+    @IBOutlet private weak var teamView: UIView!
     @IBOutlet private weak var teamBackgroundImageView: UIImageView!
     @IBOutlet private weak var teamLogoImageView: UIImageView!
     @IBOutlet private weak var teamNameLabel: UILabel!
-    @IBOutlet private weak var teamInfoLabel: UILabel!
+    @IBOutlet private weak var teamInfoTextView: UITextView!
 
     // MARK: - Private properties -
 
@@ -53,9 +54,19 @@ class TeamViewController: UIViewController
     /// Will setup the view with all required data.
     private func setup()
     {
+        // Setup team view
+        let gradientLayer: CAGradientLayer = CAGradientLayer()
+        gradientLayer.colors = UIColor.brandGradient as [Any]
+        gradientLayer.locations = [0.0, 0.7]
+        gradientLayer.frame = teamView.bounds
+        teamView.layer.insertSublayer(gradientLayer, at: 0)
+
+        // Setup team info view
+        teamInfoTextView.contentOffset = CGPoint(x: 0, y: 0)
+
         // Clear all labels from development values.
         teamNameLabel.text = nil
-        teamInfoLabel.text = nil
+        teamInfoTextView.text = nil
 
         // Get values from server.
         TwiteboApi.shared.loadTeam(withName: "livecoders")
@@ -77,7 +88,7 @@ class TeamViewController: UIViewController
                 self.teamNameLabel.text = team.displayName
 
                 // TODO: 1. replace Lable with TextView, 2. style it.
-                self.teamInfoLabel.attributedText = team.info.htmlAsAttributedString
+                self.teamInfoTextView.attributedText = team.info.htmlAsAttributedString
 
                 // Check if team banner is available.
                 //  - Yes: Load it from url.

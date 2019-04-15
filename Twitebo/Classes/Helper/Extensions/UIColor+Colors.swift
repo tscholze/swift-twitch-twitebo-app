@@ -26,4 +26,6 @@ extension UIColor
 
     // Light color.
     static let light = UIColor(named: "light")
+
+    static let brandGradient = [brand?.cgColor, white.cgColor]
 }

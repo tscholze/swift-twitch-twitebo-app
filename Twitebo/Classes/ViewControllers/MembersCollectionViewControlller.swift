@@ -21,7 +21,7 @@ class MembersCollectionViewControlller: UICollectionViewController
     static var itemHeight = 200
 
     // Collection view item intertem spacing.
-    static var itemSpacing: CGFloat = 5
+    static var itemSpacing: CGFloat = 20
 
     // MARK: - Private properties -
 
@@ -63,7 +63,7 @@ extension MembersCollectionViewControlller: UICollectionViewDelegateFlowLayout
                       height: MembersCollectionViewControlller.itemHeight + 4)
     }
 
-    func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, minimumInteritemSpacingForSectionAt _: Int) -> CGFloat
+    func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, minimumLineSpacingForSectionAt _: Int) -> CGFloat
     {
         return MembersCollectionViewControlller.itemSpacing
     }
