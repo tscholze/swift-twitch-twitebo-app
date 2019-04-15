@@ -172,6 +172,22 @@
             </objects>
             <point key="canvasLocation" x="235" y="719"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="nHe-oK-pKV">
+            <objects>
+                <viewController id="vi7-O9-rOk" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vQC-if-5jo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="eGq-i8-tSi"/>
+                    </view>
+                    <size key="freeformSize" width="414" height="300"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LH7-e4-WUK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1407" y="-533"/>
+        </scene>
         <!--Members Collection View Controller-->
         <scene sceneID="Hr0-R0-1nv">
             <objects>
