@@ -89,10 +89,10 @@
 		443E940A225D011200167C8C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				443E940D225D014200167C8C /* UIImageView+Url.swift */,
-				443E9416225D068900167C8C /* UIView+Nib.swift */,
 				4A943DEF2260B81D00355CE6 /* UIColor+Colors.swift */,
+				443E940D225D014200167C8C /* UIImageView+Url.swift */,
 				443E941D226384F700167C8C /* UIImage+Images.swift */,
+				443E9416225D068900167C8C /* UIView+Nib.swift */,
 				443E941F226386EB00167C8C /* String+Html.swift */,
 			);
 			path = Extensions;

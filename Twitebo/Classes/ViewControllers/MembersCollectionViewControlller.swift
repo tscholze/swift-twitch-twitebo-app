@@ -33,6 +33,12 @@ class MembersCollectionViewControlller: UICollectionViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+
+        // Apply styling.
+        collectionView.contentInset = UIEdgeInsets(top: 0,
+                                                   left: 20,
+                                                   bottom: 0,
+                                                   right: 20)
     }
 
     // MARK: - Internal helper -
@@ -54,7 +60,7 @@ extension MembersCollectionViewControlller: UICollectionViewDelegateFlowLayout
     func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt _: IndexPath) -> CGSize
     {
         return CGSize(width: MembersCollectionViewControlller.itemWidth,
-                      height: MembersCollectionViewControlller.itemHeight)
+                      height: MembersCollectionViewControlller.itemHeight + 4)
     }
 
     func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, minimumInteritemSpacingForSectionAt _: Int) -> CGFloat

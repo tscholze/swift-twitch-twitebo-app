@@ -38,6 +38,18 @@ class MemberCell: UICollectionViewCell
     /// - Parameter member: Underlying member.
     func setup(for member: Member)
     {
+        contentView.layer.masksToBounds = true
+        contentView.layer.cornerRadius = 20
+        contentView.layer.borderWidth = 1.0
+        contentView.layer.borderColor = UIColor.clear.cgColor
+
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = CGSize(width: 1, height: 1)
+        layer.shadowRadius = 2.0
+        layer.shadowOpacity = 0.25
+        layer.masksToBounds = false
+        layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: contentView.layer.cornerRadius).cgPath
+
         // Load image.
         if let logo = member.logo,
             let url = URL(string: logo)
