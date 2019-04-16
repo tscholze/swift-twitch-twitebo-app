@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uvc-de-OcR">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,10 +11,26 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="g2w-Fw-mbI">
+            <objects>
+                <navigationController id="uvc-de-OcR" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Nby-mb-aqk">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="vRr-Ya-nKA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OdH-fq-Xqm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-559" y="25"/>
+        </scene>
         <!--Team View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="TeamViewController" customModule="Twitebo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="BYZ-38-t0r" customClass="TeamViewController" customModule="Twitebo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -27,6 +43,7 @@
                                         <subviews>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VTs-c9-qA4">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
+                                                <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="400" placeholder="YES" id="NTa-dy-CRc"/>
                                                 </constraints>
@@ -34,7 +51,7 @@
                                                     <segue destination="vi7-O9-rOk" kind="embed" id="EpX-ho-GSa"/>
                                                 </connections>
                                             </containerView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tvd-5I-sKd">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tvd-5I-sKd" userLabel="All Members Section Header">
                                                 <rect key="frame" x="0.0" y="400" width="414" height="46"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="All members" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3tM-Pa-wW0">
@@ -69,6 +86,7 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
+                                        <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -87,7 +105,7 @@
                             <constraint firstAttribute="top" secondItem="2VM-vP-0D8" secondAttribute="top" id="ead-25-9cg"/>
                             <constraint firstAttribute="trailing" secondItem="2VM-vP-0D8" secondAttribute="trailing" id="sDk-aa-B9V"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="d4e-es-4EU"/>
+                        <viewLayoutGuide key="safeArea" id="QMV-Fn-fhp"/>
                     </view>
                     <navigationItem key="navigationItem" id="WSJ-Yf-CI1"/>
                     <size key="freeformSize" width="414" height="1000"/>
@@ -294,11 +312,78 @@
             </objects>
             <point key="canvasLocation" x="1040.5797101449275" y="203.57142857142856"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="KQB-O8-uEz">
+            <objects>
+                <navigationController id="bp2-Ao-cnm" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IOG-4z-P6a">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="U2o-dT-7fT" kind="relationship" relationship="rootViewController" id="s2x-Jt-A6u"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GYk-NF-63F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1301" y="-650"/>
+        </scene>
+        <!--TestVC-->
+        <scene sceneID="754-tj-gHU">
+            <objects>
+                <viewController id="U2o-dT-7fT" customClass="TestVC" customModule="Twitebo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nQo-yi-Nof">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ORV-QQ-zcs">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hFi-c8-ckQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XQl-t0-oGg">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                                                <color key="backgroundColor" name="accent-light"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="128" id="qxQ-r9-Jtf"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="hFi-c8-ckQ" secondAttribute="trailing" id="4xC-fK-BRs"/>
+                                    <constraint firstAttribute="bottom" secondItem="hFi-c8-ckQ" secondAttribute="bottom" id="Hbd-Sw-mOC"/>
+                                    <constraint firstItem="hFi-c8-ckQ" firstAttribute="width" secondItem="ORV-QQ-zcs" secondAttribute="width" id="ZMO-HL-dVV"/>
+                                    <constraint firstItem="hFi-c8-ckQ" firstAttribute="leading" secondItem="ORV-QQ-zcs" secondAttribute="leading" id="fxX-qi-QZJ"/>
+                                    <constraint firstItem="hFi-c8-ckQ" firstAttribute="top" secondItem="ORV-QQ-zcs" secondAttribute="top" id="xGT-xj-iXc"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="MVq-4p-1ws" firstAttribute="bottom" secondItem="ORV-QQ-zcs" secondAttribute="bottom" id="D91-gd-YY8"/>
+                            <constraint firstItem="MVq-4p-1ws" firstAttribute="trailing" secondItem="ORV-QQ-zcs" secondAttribute="trailing" id="KSm-ZW-7QD"/>
+                            <constraint firstItem="ORV-QQ-zcs" firstAttribute="leading" secondItem="MVq-4p-1ws" secondAttribute="leading" id="cCt-3f-kHf"/>
+                            <constraint firstItem="ORV-QQ-zcs" firstAttribute="top" secondItem="MVq-4p-1ws" secondAttribute="top" id="krL-ft-YjP"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="MVq-4p-1ws"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="oOJ-Po-Lff"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aOy-XD-bRP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-541" y="-675"/>
+        </scene>
     </scenes>
     <resources>
         <image name="robot-head" width="200" height="200"/>
         <namedColor name="accent-dark">
             <color red="0.0039215686274509803" green="0.11372549019607843" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="accent-light">
+            <color red="0.50588235294117645" green="0.75294117647058822" blue="0.89411764705882357" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="brand">
             <color red="0.7686274509803922" green="0.77254901960784317" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

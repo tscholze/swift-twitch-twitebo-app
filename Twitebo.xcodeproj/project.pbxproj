@@ -31,6 +31,7 @@
 		4A943DF22260BAFB00355CE6 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A943DF12260BAFB00355CE6 /* Colors.xcassets */; };
 		4ADBEA1F2265D9B50044E934 /* TeamInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADBEA1E2265D9B50044E934 /* TeamInformationViewController.swift */; };
 		4ADBEA212265F7A30044E934 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADBEA202265F7A30044E934 /* CircleView.swift */; };
+		4ADBEA23226607C40044E934 /* TestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADBEA22226607C40044E934 /* TestVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		4A943DF12260BAFB00355CE6 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		4ADBEA1E2265D9B50044E934 /* TeamInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamInformationViewController.swift; sourceTree = "<group>"; };
 		4ADBEA202265F7A30044E934 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
+		4ADBEA22226607C40044E934 /* TestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +211,7 @@
 				4ADBEA1E2265D9B50044E934 /* TeamInformationViewController.swift */,
 				443E9418226103B300167C8C /* MembersCollectionViewControlller.swift */,
 				4A5003B72264B49B00A099F5 /* StreamViewController.swift */,
+				4ADBEA22226607C40044E934 /* TestVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				4ADBEA1F2265D9B50044E934 /* TeamInformationViewController.swift in Sources */,
 				4A7B0C3F225C9EC80045C03D /* Team.swift in Sources */,
 				443E941E226384F700167C8C /* UIImage+Images.swift in Sources */,
+				4ADBEA23226607C40044E934 /* TestVC.swift in Sources */,
 				443E9420226386EB00167C8C /* String+Html.swift in Sources */,
 				443E9410225D029700167C8C /* TeamViewController.swift in Sources */,
 				443E940E225D014200167C8C /* UIImageView+Url.swift in Sources */,

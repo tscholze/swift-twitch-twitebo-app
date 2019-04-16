@@ -60,7 +60,7 @@ class TeamViewController: UIViewController
     /// Will setup the view with all required data.
     private func setup()
     {
-        view.translatesAutoresizingMaskIntoConstraints = false
+//        view.translatesAutoresizingMaskIntoConstraints = false
 
         // Setup footer view
         let gradientBottomLayer: CAGradientLayer = CAGradientLayer()
