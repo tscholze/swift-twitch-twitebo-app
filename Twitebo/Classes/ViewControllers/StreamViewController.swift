@@ -8,6 +8,8 @@
 
 import UIKit
 
+/// `StreamViewController` provides a web-based detail of the given
+/// member's stream.
 class StreamViewController: UIViewController
 {
     // MARK: - Private properties -

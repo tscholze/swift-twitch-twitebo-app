@@ -8,6 +8,9 @@
 
 import UIKit
 
+
+/// `CircleView` is a subclass of `UIView` that renders
+/// itself as a circle with half of the width as radius,
 class CircleView: UIView
 {
     override func awakeFromNib()

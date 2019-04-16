@@ -105,10 +105,13 @@ class TeamViewController: UIViewController
     }
 }
 
+// MARK: - MembersCollectionViewControllerDelegate -
+
 extension TeamViewController: MembersCollectionViewControllerDelegate
 {
     func membersCollectionViewControllerDidSelectMember(_ member: Member)
     {
+        // Get a new instance of the stream view controller.
         guard let streamVc = storyboard?.instantiateViewController(withIdentifier: "StreamScene")
             as? StreamViewController else
         {

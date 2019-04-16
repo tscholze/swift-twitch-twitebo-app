@@ -41,7 +41,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4Mt-WM-3mQ">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="696"/>
                                         <subviews>
-                                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VTs-c9-qA4">
+                                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VTs-c9-qA4" userLabel="Team Info Container View">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
                                                 <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -69,7 +69,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="3tM-Pa-wW0" secondAttribute="trailing" constant="20" id="vYs-lP-4fN"/>
                                                 </constraints>
                                             </view>
-                                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XMu-g2-9Mm">
+                                            <containerView opaque="NO" contentMode="scaleToFill" restorationIdentifier="All Members Container View" translatesAutoresizingMaskIntoConstraints="NO" id="XMu-g2-9Mm">
                                                 <rect key="frame" x="0.0" y="446" width="414" height="220"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="220" id="u2x-BJ-dqR"/>

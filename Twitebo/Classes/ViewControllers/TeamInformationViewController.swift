@@ -11,6 +11,8 @@ import UIKit
 /// Name to identify the gradient layer
 private let kGradientLayerIdentifier = "gradientLayer"
 
+/// `TeamInformationViewController` provides all information about
+/// the underlying team object.
 class TeamInformationViewController: UIViewController
 {
     // MARK: - Outlets -
@@ -67,7 +69,7 @@ class TeamInformationViewController: UIViewController
         // Set text values
         nameLabel.text = team?.displayName
         infoTextView.attributedText = team?.info.replacingOccurrences(of: "\n", with: "").htmlAsAttributedString
-        infoTextView.sizeToFit()
+        // infoTextView.sizeToFit()
 
         // Load team logo from url.
         if let logo = team?.logo, let logoUrl = URL(string: logo)
@@ -81,6 +83,7 @@ class TeamInformationViewController: UIViewController
     @IBAction
     private func onSearchButtonTapped(_: Any)
     {
+        // TODO: Implement the feature.
         print("tapped")
     }
 }
