@@ -107,6 +107,7 @@
 		443E9411225D02FD00167C8C /* GenericViews */ = {
 			isa = PBXGroup;
 			children = (
+				4ADBEA202265F7A30044E934 /* CircleView.swift */,
 				443E9412225D030900167C8C /* LoadingView.swift */,
 				443E9414225D04D500167C8C /* LoadingView.xib */,
 			);
@@ -117,7 +118,6 @@
 			isa = PBXGroup;
 			children = (
 				443E941B2261068E00167C8C /* MemberCell.swift */,
-				4ADBEA202265F7A30044E934 /* CircleView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
