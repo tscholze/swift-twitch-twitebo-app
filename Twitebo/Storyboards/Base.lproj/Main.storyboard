@@ -39,7 +39,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4Mt-WM-3mQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="696"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="982"/>
                                         <subviews>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VTs-c9-qA4" userLabel="Team Info Container View">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
@@ -51,10 +51,10 @@
                                                     <segue destination="vi7-O9-rOk" kind="embed" id="EpX-ho-GSa"/>
                                                 </connections>
                                             </containerView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tvd-5I-sKd" userLabel="All Members Section Header">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="817-mT-g66" userLabel="All Members Section Header">
                                                 <rect key="frame" x="0.0" y="400" width="414" height="46"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="All members" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3tM-Pa-wW0">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Only members" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeE-m8-Mxi">
                                                         <rect key="frame" x="20" y="0.0" width="374" height="36"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                                         <nil key="textColor"/>
@@ -63,23 +63,48 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstItem="3tM-Pa-wW0" firstAttribute="top" secondItem="Tvd-5I-sKd" secondAttribute="top" id="NkM-4u-eZT"/>
+                                                    <constraint firstItem="aeE-m8-Mxi" firstAttribute="leading" secondItem="817-mT-g66" secondAttribute="leading" constant="20" id="MSt-CF-zzg"/>
+                                                    <constraint firstAttribute="trailing" secondItem="aeE-m8-Mxi" secondAttribute="trailing" constant="20" id="Sll-EL-sBC"/>
+                                                    <constraint firstAttribute="bottom" secondItem="aeE-m8-Mxi" secondAttribute="bottom" constant="10" id="kMT-u3-Jg6"/>
+                                                    <constraint firstItem="aeE-m8-Mxi" firstAttribute="top" secondItem="817-mT-g66" secondAttribute="top" id="nXP-eI-TO0"/>
+                                                </constraints>
+                                            </view>
+                                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T5U-po-p22">
+                                                <rect key="frame" x="0.0" y="466" width="414" height="220"/>
+                                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <connections>
+                                                    <segue destination="OjH-0M-Lth" kind="embed" identifier="ShowOnlineMembersScene" id="wEz-l1-udc"/>
+                                                </connections>
+                                            </containerView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tvd-5I-sKd" userLabel="All Members Section Header">
+                                                <rect key="frame" x="0.0" y="666" width="414" height="66"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="All members" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3tM-Pa-wW0">
+                                                        <rect key="frame" x="20" y="20" width="374" height="36"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="3tM-Pa-wW0" firstAttribute="top" secondItem="Tvd-5I-sKd" secondAttribute="top" constant="20" id="NkM-4u-eZT"/>
                                                     <constraint firstAttribute="bottom" secondItem="3tM-Pa-wW0" secondAttribute="bottom" constant="10" id="bGG-lS-F5r"/>
                                                     <constraint firstItem="3tM-Pa-wW0" firstAttribute="leading" secondItem="Tvd-5I-sKd" secondAttribute="leading" constant="20" id="sMg-rz-hzv"/>
                                                     <constraint firstAttribute="trailing" secondItem="3tM-Pa-wW0" secondAttribute="trailing" constant="20" id="vYs-lP-4fN"/>
                                                 </constraints>
                                             </view>
                                             <containerView opaque="NO" contentMode="scaleToFill" restorationIdentifier="All Members Container View" translatesAutoresizingMaskIntoConstraints="NO" id="XMu-g2-9Mm">
-                                                <rect key="frame" x="0.0" y="446" width="414" height="220"/>
+                                                <rect key="frame" x="0.0" y="732" width="414" height="220"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="220" id="u2x-BJ-dqR"/>
                                                 </constraints>
                                                 <connections>
-                                                    <segue destination="OjH-0M-Lth" kind="embed" id="N2W-lU-jxa"/>
+                                                    <segue destination="OjH-0M-Lth" kind="embed" identifier="ShowAllMembersScene" id="N2W-lU-jxa"/>
                                                 </connections>
                                             </containerView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rgk-cp-ycm">
-                                                <rect key="frame" x="0.0" y="666" width="414" height="30"/>
+                                                <rect key="frame" x="0.0" y="952" width="414" height="30"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="QCq-ck-pHO"/>
@@ -87,6 +112,9 @@
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="XMu-g2-9Mm" firstAttribute="height" secondItem="T5U-po-p22" secondAttribute="height" id="qQP-Vw-sOb"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -322,7 +350,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3MB-gd-52l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1040.5797101449275" y="203.57142857142856"/>
+            <point key="canvasLocation" x="1119" y="42"/>
         </scene>
     </scenes>
     <resources>
@@ -341,4 +369,7 @@
             <color red="0.99607843137254903" green="0.9882352941176471" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="wEz-l1-udc"/>
+    </inferredMetricsTieBreakers>
 </document>

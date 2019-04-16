@@ -16,8 +16,10 @@ protocol MembersCollectionViewControllerDelegate: AnyObject
     /// Teels the delegate that a member has been selected within a
     /// `MembersCollectionViewController`.
     ///
-    /// - Parameter member: Selected member.
-    func membersCollectionViewControllerDidSelectMember(_ member: Member)
+    /// - Parameters
+    ///     - membersCollectionViewController: Collection view that called the delegate.
+    ///     - member: Selected member.
+    func membersCollectionViewControllerDidSelectMember(_ membersCollectionViewController: MembersCollectionViewController, member: Member)
 }
 
 // MARK: - MembersCollectionViewController -
@@ -44,8 +46,8 @@ class MembersCollectionViewController: UICollectionViewController
 
     // MARK: - Private properties -
 
-    // Underlying team which members will be shown.
-    private var team: Team?
+    // Underlying members will be shown.
+    private var members = [Member]()
 
     // MARK: - View life cycle -
 
@@ -64,10 +66,22 @@ class MembersCollectionViewController: UICollectionViewController
 
     /// Sets up the view for given team's members.
     ///
-    /// - Parameter team: Underlying team.
-    func setup(forTeam team: Team?)
+    /// - Parameters
+    ///     - team: Underlying team.
+    ///     - showOnlyOnlineMembers: Determins if only online
+    ///                             members should be shown.
+    func setup(forTeam team: Team?, showOnlyOnlineMembers: Bool = false)
     {
-        self.team = team
+        // Sort team members by display name.
+        members = team?.members.sorted(by: { $0.displayName < $1.displayName }) ?? []
+
+        // Filter only online members if flag is set to true.
+        if showOnlyOnlineMembers
+        {
+            members = members.filter { $0.isOnline == true }
+        }
+
+        // Call collection view to reload itself.
         collectionView.reloadData()
     }
 }
@@ -99,17 +113,17 @@ extension MembersCollectionViewController
 
     override func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int
     {
-        return team?.members.count ?? 0
+        return members.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MemberCell.identifier, for: indexPath) as? MemberCell, let team = team else
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MemberCell.identifier, for: indexPath) as? MemberCell else
         {
-            fatalError("Could not find cell `\(MemberCell.identifier)` or team is not.")
+            fatalError("Could not find cell `\(MemberCell.identifier)`.")
         }
 
-        cell.setup(for: team.members[indexPath.item])
+        cell.setup(for: members[indexPath.item])
 
         return cell
     }
@@ -121,14 +135,7 @@ extension MembersCollectionViewController
 {
     override func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath)
     {
-        // Ensure that member is available.
-        guard let member = team?.members[indexPath.item] else
-        {
-            print("No member found.")
-            return
-        }
-
         // Call delegate.
-        delegate?.membersCollectionViewControllerDidSelectMember(member)
+        delegate?.membersCollectionViewControllerDidSelectMember(self, member: members[indexPath.item])
     }
 }

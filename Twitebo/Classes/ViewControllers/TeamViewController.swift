@@ -22,8 +22,11 @@ class TeamViewController: UIViewController
     // Fullscreen blocking loading view.
     private let loadingView = LoadingView.instantiateFromNib()
 
+    // Collection view controller that will represent only team members.
+    private var onlineMembersViewController: MembersCollectionViewController?
+
     // Collection view controller that will represent all team members.
-    private var membersViewController: MembersCollectionViewController?
+    private var allMembersViewController: MembersCollectionViewController?
 
     /// View controller that will represent the team's information.
     private var teamInformationViewController: TeamInformationViewController?
@@ -48,10 +51,18 @@ class TeamViewController: UIViewController
         }
 
         // Check if destination is members view controller
-        if let membersViewController = segue.destination as? MembersCollectionViewController
+        else if let membersViewController = segue.destination as? MembersCollectionViewController
         {
-            self.membersViewController = membersViewController
-            self.membersViewController?.delegate = self
+            if segue.identifier == "ShowOnlineMembersScene"
+            {
+                onlineMembersViewController = membersViewController
+                onlineMembersViewController?.delegate = self
+            }
+            else if segue.identifier == "ShowAllMembersScene"
+            {
+                allMembersViewController = membersViewController
+                allMembersViewController?.delegate = self
+            }
         }
     }
 
@@ -95,8 +106,9 @@ class TeamViewController: UIViewController
             DispatchQueue.main.async
             {
                 // Set received team to sub view controllers
-                self.membersViewController?.setup(forTeam: team)
                 self.teamInformationViewController?.setup(forTeam: team)
+                self.onlineMembersViewController?.setup(forTeam: team, showOnlyOnlineMembers: true)
+                self.allMembersViewController?.setup(forTeam: team)
 
                 // Dismiss loadingview
                 self.loadingView.dismiss()
@@ -109,7 +121,7 @@ class TeamViewController: UIViewController
 
 extension TeamViewController: MembersCollectionViewControllerDelegate
 {
-    func membersCollectionViewControllerDidSelectMember(_ member: Member)
+    func membersCollectionViewControllerDidSelectMember(_: MembersCollectionViewController, member: Member)
     {
         // Get a new instance of the stream view controller.
         guard let streamVc = storyboard?.instantiateViewController(withIdentifier: "StreamScene")
