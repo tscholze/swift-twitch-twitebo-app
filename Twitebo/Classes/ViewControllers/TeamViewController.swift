@@ -60,16 +60,17 @@ class TeamViewController: UIViewController
     /// Will setup the view with all required data.
     private func setup()
     {
-//        view.translatesAutoresizingMaskIntoConstraints = false
+        // Setup navigation bar.
+        navigationController?.navigationBar.isHidden = true
 
-        // Setup footer view
+        // Setup footer view.
         let gradientBottomLayer: CAGradientLayer = CAGradientLayer()
         gradientBottomLayer.colors = UIColor.brandGradient.reversed() as [Any]
         gradientBottomLayer.locations = [0.0, 1.0]
         gradientBottomLayer.frame = footerView.bounds
         footerView.layer.insertSublayer(gradientBottomLayer, at: 0)
 
-        // Show loading view
+        // Show loading view.
         loadingView.present(on: view)
 
         // Get values from server.
@@ -118,6 +119,6 @@ extension TeamViewController: MembersCollectionViewControllerDelegate
         streamVc.member = member
 
         // Show member.
-        show(streamVc, sender: nil)
+        present(streamVc, animated: true)
     }
 }

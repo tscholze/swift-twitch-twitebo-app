@@ -75,4 +75,12 @@ class TeamInformationViewController: UIViewController
             logoImageView.image(fromUrl: logoUrl)
         }
     }
+
+    // MARK: - Actions -
+
+    @IBAction
+    private func onSearchButtonTapped(_: Any)
+    {
+        print("tapped")
+    }
 }

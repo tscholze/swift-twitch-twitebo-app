@@ -31,6 +31,6 @@ class StreamViewController: UIViewController
     @IBAction
     private func onCloseButtonTapped(_: Any)
     {
-        presentingViewController?.dismiss(animated: true)
+        dismiss(animated: true)
     }
 }

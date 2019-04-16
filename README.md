@@ -16,6 +16,10 @@ This is a time-by-time sparetime project for myself. That means, no contribution
 
 Just me, [Tobi]([https://tscholze.github.io).
 
+## Thanks to
+
+- Search icon: Google Material Design
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
