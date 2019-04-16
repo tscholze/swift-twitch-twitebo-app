@@ -30,6 +30,7 @@
 		4A943DF02260B81D00355CE6 /* UIColor+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A943DEF2260B81D00355CE6 /* UIColor+Colors.swift */; };
 		4A943DF22260BAFB00355CE6 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A943DF12260BAFB00355CE6 /* Colors.xcassets */; };
 		4ADBEA1F2265D9B50044E934 /* TeamInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADBEA1E2265D9B50044E934 /* TeamInformationViewController.swift */; };
+		4ADBEA212265F7A30044E934 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADBEA202265F7A30044E934 /* CircleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		4A943DEF2260B81D00355CE6 /* UIColor+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Colors.swift"; sourceTree = "<group>"; };
 		4A943DF12260BAFB00355CE6 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		4ADBEA1E2265D9B50044E934 /* TeamInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamInformationViewController.swift; sourceTree = "<group>"; };
+		4ADBEA202265F7A30044E934 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				443E941B2261068E00167C8C /* MemberCell.swift */,
+				4ADBEA202265F7A30044E934 /* CircleView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4ADBEA212265F7A30044E934 /* CircleView.swift in Sources */,
 				4A5003B82264B49B00A099F5 /* StreamViewController.swift in Sources */,
 				4ADBEA1F2265D9B50044E934 /* TeamInformationViewController.swift in Sources */,
 				4A7B0C3F225C9EC80045C03D /* Team.swift in Sources */,

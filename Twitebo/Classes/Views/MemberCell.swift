@@ -17,6 +17,7 @@ class MemberCell: UICollectionViewCell
     @IBOutlet private weak var logoImageView: UIImageView!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var statusLabel: UILabel!
+    @IBOutlet private weak var onlineIndicatorView: CircleView!
 
     // MARK: - Interal properties -
 
@@ -69,5 +70,15 @@ class MemberCell: UICollectionViewCell
         // Set text values.
         nameLabel.text = member.displayName
         statusLabel.text = member.status
+
+        // Set color values.
+        if member.isOnline == true
+        {
+            onlineIndicatorView.backgroundColor = UIColor.green
+        }
+        else
+        {
+            onlineIndicatorView.backgroundColor = UIColor.red
+        }
     }
 }
