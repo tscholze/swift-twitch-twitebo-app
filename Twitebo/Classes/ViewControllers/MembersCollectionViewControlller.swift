@@ -146,6 +146,9 @@ extension MembersCollectionViewController
 {
     override func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath)
     {
+        // Ensure that the team is not empty and the user did not tap on a no-member-cell.
+        guard members.isEmpty == false else { return }
+
         // Call delegate.
         delegate?.membersCollectionViewControllerDidSelectMember(self, member: members[indexPath.item])
     }
