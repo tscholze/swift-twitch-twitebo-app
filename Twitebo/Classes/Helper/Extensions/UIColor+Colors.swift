@@ -12,6 +12,8 @@ import UIKit
 /// https://colorpalettes.net/color-palette-2661/
 extension UIColor
 {
+    // MARK: - Color definitions -
+
     /// Brand color.
     static let brand = UIColor(named: "brand")
 
@@ -27,5 +29,14 @@ extension UIColor
     // Light color.
     static let light = UIColor(named: "light")
 
+    // Online color.
+    static let online = UIColor(named: "online")
+
+    // Offline color.
+    static let offline = UIColor(named: "offline")
+
+    // MARK: - Gradients -
+
+    // Brand color gradient.
     static let brandGradient = [brand?.cgColor, white.cgColor]
 }

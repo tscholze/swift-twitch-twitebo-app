@@ -54,11 +54,11 @@ class MemberCell: ShadowedCollectionViewCell
         // Set color values.
         if member.isOnline == true
         {
-            onlineIndicatorView.backgroundColor = UIColor.green
+            onlineIndicatorView.backgroundColor = UIColor.online
         }
         else
         {
-            onlineIndicatorView.backgroundColor = UIColor.red
+            onlineIndicatorView.backgroundColor = UIColor.offline
         }
 
         // Set text values.
