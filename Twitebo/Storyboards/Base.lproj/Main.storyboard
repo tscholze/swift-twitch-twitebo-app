@@ -153,21 +153,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <wkWebView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kq5-ce-Mp1">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VGF-Md-wlT">
-                                <rect key="frame" x="348" y="64" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="355" y="64" width="39" height="30"/>
+                                <state key="normal" title="Close">
+                                    <color key="titleColor" name="light"/>
+                                    <color key="titleShadowColor" red="0.87002435410000001" green="0.53972189449999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="onCloseButtonTapped:" destination="jSN-bg-3e4" eventType="touchUpInside" id="ssF-9x-sCv"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="wcc-z0-fLV">
+                                <rect key="frame" x="188.5" y="434.5" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="dark"/>
                         <constraints>
                             <constraint firstItem="BVB-FQ-oq3" firstAttribute="trailing" secondItem="VGF-Md-wlT" secondAttribute="trailing" constant="20" id="8gy-jQ-KY0"/>
                             <constraint firstItem="VGF-Md-wlT" firstAttribute="top" secondItem="BVB-FQ-oq3" secondAttribute="top" constant="20" id="A30-nH-LLo"/>
+                            <constraint firstItem="wcc-z0-fLV" firstAttribute="centerX" secondItem="BVB-FQ-oq3" secondAttribute="centerX" id="Cqm-ii-XfL"/>
+                            <constraint firstItem="Kq5-ce-Mp1" firstAttribute="leading" secondItem="BVB-FQ-oq3" secondAttribute="leading" id="Oxz-yW-jih"/>
+                            <constraint firstItem="BVB-FQ-oq3" firstAttribute="trailing" secondItem="Kq5-ce-Mp1" secondAttribute="trailing" id="dpl-1a-B23"/>
+                            <constraint firstAttribute="bottom" secondItem="Kq5-ce-Mp1" secondAttribute="bottom" id="fRJ-BA-YD0"/>
+                            <constraint firstItem="Kq5-ce-Mp1" firstAttribute="top" secondItem="aaE-aW-XE4" secondAttribute="top" id="rbz-P3-a3I"/>
+                            <constraint firstItem="wcc-z0-fLV" firstAttribute="centerY" secondItem="BVB-FQ-oq3" secondAttribute="centerY" id="y6L-YS-dm2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BVB-FQ-oq3"/>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="wcc-z0-fLV" id="fVo-Mc-A6j"/>
+                        <outlet property="webView" destination="Kq5-ce-Mp1" id="tNa-F4-KFn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mmx-hx-Z3z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -399,6 +423,9 @@
         </namedColor>
         <namedColor name="brand">
             <color red="0.7686274509803922" green="0.77254901960784317" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="dark">
+            <color red="0.0" green="0.0078431372549019607" blue="0.082352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="light">
             <color red="0.99607843137254903" green="0.9882352941176471" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

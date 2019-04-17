@@ -17,8 +17,8 @@
 		443E941E226384F700167C8C /* UIImage+Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443E941D226384F700167C8C /* UIImage+Images.swift */; };
 		443E9420226386EB00167C8C /* String+Html.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443E941F226386EB00167C8C /* String+Html.swift */; };
 		443E94222266482C00167C8C /* Teamable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443E94212266482C00167C8C /* Teamable.swift */; };
+		443E942622679C9300167C8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443E942522679C9300167C8C /* AppDelegate.swift */; };
 		4A5003B82264B49B00A099F5 /* StreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5003B72264B49B00A099F5 /* StreamViewController.swift */; };
-		4A7B0C13225C9ACE0045C03D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7B0C12225C9ACE0045C03D /* AppDelegate.swift */; };
 		4A7B0C18225C9ACE0045C03D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A7B0C16225C9ACE0045C03D /* Main.storyboard */; };
 		4A7B0C1A225C9ACF0045C03D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A7B0C19225C9ACF0045C03D /* Assets.xcassets */; };
 		4A7B0C1D225C9ACF0045C03D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A7B0C1B225C9ACF0045C03D /* LaunchScreen.storyboard */; };
@@ -57,9 +57,9 @@
 		443E941D226384F700167C8C /* UIImage+Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Images.swift"; sourceTree = "<group>"; };
 		443E941F226386EB00167C8C /* String+Html.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Html.swift"; sourceTree = "<group>"; };
 		443E94212266482C00167C8C /* Teamable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teamable.swift; sourceTree = "<group>"; };
+		443E942522679C9300167C8C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A5003B72264B49B00A099F5 /* StreamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamViewController.swift; sourceTree = "<group>"; };
 		4A7B0C0F225C9ACE0045C03D /* Twitebo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twitebo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4A7B0C12225C9ACE0045C03D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A7B0C17225C9ACE0045C03D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4A7B0C19225C9ACF0045C03D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A7B0C1C225C9ACF0045C03D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -151,10 +151,10 @@
 		4A7B0C11225C9ACE0045C03D /* Twitebo */ = {
 			isa = PBXGroup;
 			children = (
+				443E942522679C9300167C8C /* AppDelegate.swift */,
 				4A7B0C35225C9C290045C03D /* Resources */,
 				4A7B0C37225C9C470045C03D /* Storyboards */,
 				4A7B0C36225C9C350045C03D /* Classes */,
-				4A7B0C12225C9ACE0045C03D /* AppDelegate.swift */,
 				4A7B0C1E225C9ACF0045C03D /* Info.plist */,
 			);
 			path = Twitebo;
@@ -400,8 +400,8 @@
 				4AB10CDF2267134900721D4A /* ShadowedCollectionViewCell.swift in Sources */,
 				443E9419226103B300167C8C /* MembersCollectionViewControlller.swift in Sources */,
 				443E941C2261068E00167C8C /* MemberCell.swift in Sources */,
-				4A7B0C13225C9ACE0045C03D /* AppDelegate.swift in Sources */,
 				443E9417225D068900167C8C /* UIView+Nib.swift in Sources */,
+				443E942622679C9300167C8C /* AppDelegate.swift in Sources */,
 				443E9413225D030900167C8C /* LoadingView.swift in Sources */,
 				4A943DEE22608AAC00355CE6 /* Stream.swift in Sources */,
 			);
@@ -574,7 +574,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.tscholze.Twitebo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -591,7 +591,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.tscholze.Twitebo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
