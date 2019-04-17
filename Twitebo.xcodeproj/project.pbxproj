@@ -30,6 +30,8 @@
 		4A943DEE22608AAC00355CE6 /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A943DED22608AAC00355CE6 /* Stream.swift */; };
 		4A943DF02260B81D00355CE6 /* UIColor+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A943DEF2260B81D00355CE6 /* UIColor+Colors.swift */; };
 		4A943DF22260BAFB00355CE6 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A943DF12260BAFB00355CE6 /* Colors.xcassets */; };
+		4AB10CDD226712A600721D4A /* NoMemberOnlineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB10CDC226712A600721D4A /* NoMemberOnlineCell.swift */; };
+		4AB10CDF2267134900721D4A /* ShadowedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB10CDE2267134900721D4A /* ShadowedCollectionViewCell.swift */; };
 		4ADBEA1F2265D9B50044E934 /* TeamInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADBEA1E2265D9B50044E934 /* TeamInformationViewController.swift */; };
 		4ADBEA212265F7A30044E934 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADBEA202265F7A30044E934 /* CircleView.swift */; };
 /* End PBXBuildFile section */
@@ -72,6 +74,8 @@
 		4A943DED22608AAC00355CE6 /* Stream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stream.swift; sourceTree = "<group>"; };
 		4A943DEF2260B81D00355CE6 /* UIColor+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Colors.swift"; sourceTree = "<group>"; };
 		4A943DF12260BAFB00355CE6 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		4AB10CDC226712A600721D4A /* NoMemberOnlineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoMemberOnlineCell.swift; sourceTree = "<group>"; };
+		4AB10CDE2267134900721D4A /* ShadowedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowedCollectionViewCell.swift; sourceTree = "<group>"; };
 		4ADBEA1E2265D9B50044E934 /* TeamInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamInformationViewController.swift; sourceTree = "<group>"; };
 		4ADBEA202265F7A30044E934 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,6 +116,7 @@
 				4ADBEA202265F7A30044E934 /* CircleView.swift */,
 				443E9412225D030900167C8C /* LoadingView.swift */,
 				443E9414225D04D500167C8C /* LoadingView.xib */,
+				4AB10CDE2267134900721D4A /* ShadowedCollectionViewCell.swift */,
 			);
 			path = GenericViews;
 			sourceTree = "<group>";
@@ -120,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				443E941B2261068E00167C8C /* MemberCell.swift */,
+				4AB10CDC226712A600721D4A /* NoMemberOnlineCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -390,6 +396,8 @@
 				443E94222266482C00167C8C /* Teamable.swift in Sources */,
 				4A7B0C41225C9FDC0045C03D /* Configuration.swift in Sources */,
 				4A7B0C3D225C9E970045C03D /* TwiteboApi.swift in Sources */,
+				4AB10CDD226712A600721D4A /* NoMemberOnlineCell.swift in Sources */,
+				4AB10CDF2267134900721D4A /* ShadowedCollectionViewCell.swift in Sources */,
 				443E9419226103B300167C8C /* MembersCollectionViewControlller.swift in Sources */,
 				443E941C2261068E00167C8C /* MemberCell.swift in Sources */,
 				4A7B0C13225C9ACE0045C03D /* AppDelegate.swift in Sources */,

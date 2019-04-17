@@ -113,19 +113,30 @@ extension MembersCollectionViewController
 
     override func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int
     {
-        return members.count
+        return members.isEmpty ? 1 : members.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MemberCell.identifier, for: indexPath) as? MemberCell else
+        // Check if members is empty.
+        //  - yes: Show empty member placeholder cell.
+        //  - no: Show member cells.
+        if members.isEmpty
         {
-            fatalError("Could not find cell `\(MemberCell.identifier)`.")
+            return collectionView.dequeueReusableCell(withReuseIdentifier: NoMemberOnlineCell.identifier,
+                                                      for: indexPath)
         }
+        else
+        {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MemberCell.identifier, for: indexPath) as? MemberCell else
+            {
+                fatalError("Could not find cell `\(MemberCell.identifier)`.")
+            }
 
-        cell.setup(for: members[indexPath.item])
+            cell.setup(for: members[indexPath.item])
 
-        return cell
+            return cell
+        }
     }
 }
 

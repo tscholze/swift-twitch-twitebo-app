@@ -8,9 +8,9 @@
 
 import UIKit
 
-/// `MemberCell` is responsible to represent member-related
-/// information.
-class MemberCell: UICollectionViewCell
+/// `MemberCell` is a subclass of `ShadowedCollectionViewCell`
+/// and responsible to represent member-related information.
+class MemberCell: ShadowedCollectionViewCell
 {
     // MARK: - Outlets -
 
@@ -25,22 +25,6 @@ class MemberCell: UICollectionViewCell
     static var identifier = "MemberCell"
 
     // MARK: - View life cycle -
-
-    override func awakeFromNib()
-    {
-        super.awakeFromNib()
-
-        // Setup cell's styling.
-        contentView.layer.masksToBounds = true
-        contentView.layer.cornerRadius = 20
-
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOffset = CGSize(width: 0, height: 0)
-        layer.shadowRadius = 4.0
-        layer.shadowOpacity = 0.75
-        layer.masksToBounds = false
-        layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: contentView.layer.cornerRadius).cgPath
-    }
 
     override func prepareForReuse()
     {
@@ -67,10 +51,6 @@ class MemberCell: UICollectionViewCell
             // TODO: Show placeholder if no logo is available.
         }
 
-        // Set text values.
-        nameLabel.text = member.displayName
-        statusLabel.text = member.status
-
         // Set color values.
         if member.isOnline == true
         {
@@ -80,5 +60,14 @@ class MemberCell: UICollectionViewCell
         {
             onlineIndicatorView.backgroundColor = UIColor.red
         }
+
+        // Set text values.
+        nameLabel.text = member.displayName
+
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 5
+
+        let attributes: [NSAttributedString.Key: Any] = [.paragraphStyle: paragraphStyle]
+        statusLabel.attributedText = NSAttributedString(string: member.status, attributes: attributes)
     }
 }

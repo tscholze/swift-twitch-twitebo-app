@@ -69,7 +69,6 @@ class TeamInformationViewController: UIViewController
         // Set text values
         nameLabel.text = team?.displayName
         infoTextView.attributedText = team?.info.replacingOccurrences(of: "\n", with: "").htmlAsAttributedString
-        // infoTextView.sizeToFit()
 
         // Load team logo from url.
         if let logo = team?.logo, let logoUrl = URL(string: logo)
