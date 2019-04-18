@@ -27,6 +27,8 @@
 		4A7B0C41225C9FDC0045C03D /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7B0C40225C9FDC0045C03D /* Configuration.swift */; };
 		4A7B0C52225CD7030045C03D /* ApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7B0C51225CD7030045C03D /* ApiTests.swift */; };
 		4A7B0C54225CD9CC0045C03D /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7B0C53225CD9CC0045C03D /* Member.swift */; };
+		4A7DBC7F2268A04700A0713E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7DBC7E2268A04700A0713E /* SearchViewController.swift */; };
+		4A7DBC812268A77700A0713E /* SearchConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7DBC802268A77700A0713E /* SearchConfiguration.swift */; };
 		4A943DEE22608AAC00355CE6 /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A943DED22608AAC00355CE6 /* Stream.swift */; };
 		4A943DF02260B81D00355CE6 /* UIColor+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A943DEF2260B81D00355CE6 /* UIColor+Colors.swift */; };
 		4A943DF22260BAFB00355CE6 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A943DF12260BAFB00355CE6 /* Colors.xcassets */; };
@@ -71,6 +73,8 @@
 		4A7B0C40225C9FDC0045C03D /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		4A7B0C51225CD7030045C03D /* ApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTests.swift; sourceTree = "<group>"; };
 		4A7B0C53225CD9CC0045C03D /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
+		4A7DBC7E2268A04700A0713E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		4A7DBC802268A77700A0713E /* SearchConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchConfiguration.swift; sourceTree = "<group>"; };
 		4A943DED22608AAC00355CE6 /* Stream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stream.swift; sourceTree = "<group>"; };
 		4A943DEF2260B81D00355CE6 /* UIColor+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Colors.swift"; sourceTree = "<group>"; };
 		4A943DF12260BAFB00355CE6 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -218,6 +222,7 @@
 				4ADBEA1E2265D9B50044E934 /* TeamInformationViewController.swift */,
 				443E9418226103B300167C8C /* MembersCollectionViewControlller.swift */,
 				4A5003B72264B49B00A099F5 /* StreamViewController.swift */,
+				4A7DBC7E2268A04700A0713E /* SearchViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -235,6 +240,7 @@
 				4A7B0C3E225C9EC80045C03D /* Team.swift */,
 				4A7B0C53225CD9CC0045C03D /* Member.swift */,
 				4A943DED22608AAC00355CE6 /* Stream.swift */,
+				4A7DBC802268A77700A0713E /* SearchConfiguration.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -395,8 +401,10 @@
 				4A943DF02260B81D00355CE6 /* UIColor+Colors.swift in Sources */,
 				443E94222266482C00167C8C /* Teamable.swift in Sources */,
 				4A7B0C41225C9FDC0045C03D /* Configuration.swift in Sources */,
+				4A7DBC7F2268A04700A0713E /* SearchViewController.swift in Sources */,
 				4A7B0C3D225C9E970045C03D /* TwiteboApi.swift in Sources */,
 				4AB10CDD226712A600721D4A /* NoMemberOnlineCell.swift in Sources */,
+				4A7DBC812268A77700A0713E /* SearchConfiguration.swift in Sources */,
 				4AB10CDF2267134900721D4A /* ShadowedCollectionViewCell.swift in Sources */,
 				443E9419226103B300167C8C /* MembersCollectionViewControlller.swift in Sources */,
 				443E941C2261068E00167C8C /* MemberCell.swift in Sources */,

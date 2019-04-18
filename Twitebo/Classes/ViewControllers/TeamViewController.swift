@@ -106,7 +106,7 @@ class TeamViewController: UIViewController
             DispatchQueue.main.async
             {
                 // Set received team to sub view controllers
-                self.teamInformationViewController?.setup(forTeam: team)
+                self.teamInformationViewController?.setup(forTeam: team, with: self)
                 self.onlineMembersViewController?.setup(forTeam: team, showOnlyOnlineMembers: true)
                 self.allMembersViewController?.setup(forTeam: team)
 
@@ -135,5 +135,34 @@ extension TeamViewController: MembersCollectionViewControllerDelegate
 
         // Show member.
         present(streamVc, animated: true)
+    }
+}
+
+extension TeamViewController: TeamInformationViewControllerDelegate
+{
+    func teamInformationViewControllerRequestedSearch(_: TeamInformationViewController)
+    {
+        guard let searchVc = storyboard?.instantiateViewController(withIdentifier: "SearchScene") as? SearchViewController else
+        {
+            return
+        }
+
+        // TODO: Load it from disk
+        searchVc.setup(for: SearchConfiguration(teamName: "",
+                                                showMatureStreamer: true,
+                                                showOnlyApStreamer: false), with: self)
+
+        searchVc.modalPresentationStyle = .overCurrentContext
+        searchVc.view.backgroundColor = UIColor.clear
+
+        present(searchVc, animated: true)
+    }
+}
+
+extension TeamViewController: SearchViewControllerDelegate
+{
+    func searchViewController(_: SearchViewController, requestedSearchWith configuration: SearchConfiguration)
+    {
+        print("Now I should search for team: \(configuration.teamName)")
     }
 }

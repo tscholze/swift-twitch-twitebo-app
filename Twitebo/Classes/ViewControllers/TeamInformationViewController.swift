@@ -11,6 +11,11 @@ import UIKit
 /// Name to identify the gradient layer
 private let kGradientLayerIdentifier = "gradientLayer"
 
+protocol TeamInformationViewControllerDelegate: AnyObject
+{
+    func teamInformationViewControllerRequestedSearch(_ teamInformationViewController: TeamInformationViewController)
+}
+
 /// `TeamInformationViewController` provides all information about
 /// the underlying team object.
 class TeamInformationViewController: UIViewController
@@ -21,10 +26,13 @@ class TeamInformationViewController: UIViewController
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var infoTextView: UITextView!
 
-    // MARK: - Internal properties -
+    // MARK: - Private  properties -
 
     /// Underlying team.
-    var team: Team?
+
+    private var team: Team?
+
+    private weak var delegate: TeamInformationViewControllerDelegate?
 
     // MARK: - View life cycle -
 
@@ -64,8 +72,10 @@ class TeamInformationViewController: UIViewController
     /// Sets up the view for given.
     ///
     /// - Parameter team: Underlying team.
-    func setup(forTeam team: Team?)
+    func setup(forTeam team: Team?, with delegate: TeamInformationViewControllerDelegate)
     {
+        self.delegate = delegate
+
         // Set text values
         nameLabel.text = team?.displayName
         infoTextView.attributedText = team?.info.replacingOccurrences(of: "\n", with: "").htmlAsAttributedString
@@ -75,5 +85,13 @@ class TeamInformationViewController: UIViewController
         {
             logoImageView.image(fromUrl: logoUrl)
         }
+    }
+
+    // MARK: - Actions -
+
+    @IBAction
+    private func onSearchButtonTapped(_: Any)
+    {
+        delegate?.teamInformationViewControllerRequestedSearch(self)
     }
 }
