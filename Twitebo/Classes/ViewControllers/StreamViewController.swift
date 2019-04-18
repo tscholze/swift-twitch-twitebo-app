@@ -6,6 +6,7 @@
 //  Copyright © 2019 Tobias Scholze. All rights reserved.
 //
 
+import AVKit
 import UIKit
 import WebKit
 
@@ -16,7 +17,6 @@ class StreamViewController: UIViewController
     // MARK: - Outlets -
 
     @IBOutlet private weak var webView: WKWebView!
-    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
 
     // MARK: - Private properties -
 
@@ -31,8 +31,11 @@ class StreamViewController: UIViewController
     {
         super.viewDidLoad()
 
-        // Setup web view
-        webView.navigationDelegate = self
+        // listen for videos playing in fullscreen
+        NotificationCenter.default.addObserver(self, selector: #selector(onDidBecomeVisibe), name: UIWindow.didBecomeVisibleNotification, object: view.window)
+
+        // listen for videos stopping to play in fullscreen
+        NotificationCenter.default.addObserver(self, selector: #selector(onDidBecomeHidden), name: UIWindow.didBecomeHiddenNotification, object: view.window)
 
         // Ensure that all required data is available.
         guard let member = member,
@@ -42,8 +45,15 @@ class StreamViewController: UIViewController
         }
 
         // Create and load request.
+        loadingView.present(on: view)
         let request = URLRequest(url: url)
         webView.load(request)
+    }
+
+    override func viewWillDisappear(_ animated: Bool)
+    {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
     }
 
     // MARK: - Actions -
@@ -53,18 +63,14 @@ class StreamViewController: UIViewController
     {
         dismiss(animated: true)
     }
-}
 
-// MARK: - WKNavigationDelegate -
-
-extension StreamViewController: WKNavigationDelegate
-{
-    func webView(_: WKWebView, didFinish _: WKNavigation!)
+    @objc func onDidBecomeVisibe()
     {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5)
-        { [weak self] in
-            self?.webView.alpha = 1
-            self?.activityIndicator.alpha = 0
-        }
+        loadingView.dismiss(animated: true)
+    }
+
+    @objc func onDidBecomeHidden()
+    {
+        dismiss(animated: true)
     }
 }

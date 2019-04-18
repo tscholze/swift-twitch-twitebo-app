@@ -13,4 +13,11 @@ struct SearchConfiguration: Codable
     let teamName: String
     let showMatureStreamer: Bool
     let showOnlyApStreamer: Bool
+
+    static var empty: SearchConfiguration
+    {
+        return SearchConfiguration(teamName: "",
+                                   showMatureStreamer: true,
+                                   showOnlyApStreamer: false)
+    }
 }

@@ -32,7 +32,7 @@ class TwiteboApi
     func loadTeam(withName name: String, _ completion: @escaping (Team?) -> Void)
     {
         // Assemble url.
-        let endpoint = Configuration.twitchApiTeamsEndpoint + "/" + name
+        let endpoint = Configuration.twitchApiTeamsEndpoint + "/" + sanitize(teamName: name)
 
         // Get data frp, first endpoint.
         get(fromEndpoint: endpoint)
@@ -155,5 +155,12 @@ class TwiteboApi
                 print("---")
             }
         }.resume()
+    }
+
+    private func sanitize(teamName: String) -> String
+    {
+        var name = teamName.replacingOccurrences(of: " ", with: "-")
+        name = name.lowercased()
+        return name
     }
 }

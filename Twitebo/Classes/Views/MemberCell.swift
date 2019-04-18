@@ -15,14 +15,15 @@ class MemberCell: ShadowedCollectionViewCell
     // MARK: - Outlets -
 
     @IBOutlet private weak var logoImageView: UIImageView!
+    @IBOutlet private weak var matureIdentifierLabel: UILabel!
+    @IBOutlet private weak var onlineIndicatorView: CircleView!
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var statusLabel: UILabel!
-    @IBOutlet private weak var onlineIndicatorView: CircleView!
 
     // MARK: - Interal properties -
 
     /// Cell's identifier.
-    static var identifier = "MemberCell"
+    static let identifier = "MemberCell"
 
     // MARK: - View life cycle -
 
@@ -62,6 +63,7 @@ class MemberCell: ShadowedCollectionViewCell
         }
 
         // Set text values.
+        matureIdentifierLabel.text = member.isMature ? "🚨" : "👨‍👧‍👦"
         nameLabel.text = member.displayName
 
         let paragraphStyle = NSMutableParagraphStyle()

@@ -44,12 +44,18 @@ class SearchViewController: UIViewController
     {
         super.viewDidLoad()
 
+        // Ensure required data is set.
         guard let configuration = configuration else { return }
 
         // Setup controls.
         nameTextField.text = configuration.teamName
         showMatureStreamerSwitch.isOn = configuration.showMatureStreamer
         showOnlyApStreamerSwitch.isOn = configuration.showOnlyApStreamer
+
+        if configuration.teamName.isEmpty
+        {
+            nameTextField.becomeFirstResponder()
+        }
     }
 
     // MARK: - Internal helper -
@@ -74,9 +80,12 @@ class SearchViewController: UIViewController
         delegate?.searchViewController(self,
                                        requestedSearchWith: searchConfiguration)
 
-        nameTextField.resignFirstResponder()
+        dismissView()
+    }
 
-        // TODO: Check if delegate should be fired in completion block
+    private func dismissView()
+    {
+        nameTextField.resignFirstResponder()
         dismiss(animated: true)
     }
 
@@ -104,7 +113,7 @@ class SearchViewController: UIViewController
     @IBAction
     private func onCloseButtonTapped(_: Any)
     {
-        dismiss(animated: true)
+        dismissView()
     }
 }
 

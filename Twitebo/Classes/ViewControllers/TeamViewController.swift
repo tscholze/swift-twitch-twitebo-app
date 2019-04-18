@@ -8,6 +8,8 @@
 
 import UIKit
 
+private let kUserDefaultsSearchConfigurationKey = "search-configuration"
+
 /// `TeamViewController` provides the functionallity to search a
 /// team and show all team-related information.
 /// It also contains information about the team members.
@@ -31,7 +33,32 @@ class TeamViewController: UIViewController
     /// View controller that will represent the team's information.
     private var teamInformationViewController: TeamInformationViewController?
 
-    // TODO: Add another cvc that only represents online members.
+    private var searchConfiguration: SearchConfiguration?
+    {
+        set
+        {
+            if newValue == nil
+            {
+                UserDefaults.standard.set(nil, forKey: kUserDefaultsSearchConfigurationKey)
+            }
+            guard newValue?.teamName.isEmpty == false else { return }
+
+            if let encoded = try? JSONEncoder().encode(newValue)
+            {
+                UserDefaults.standard.set(encoded, forKey: kUserDefaultsSearchConfigurationKey)
+            }
+        }
+        get
+        {
+            guard let data = UserDefaults.standard.object(forKey: kUserDefaultsSearchConfigurationKey) as? Data,
+                let configuration = try? JSONDecoder().decode(SearchConfiguration.self, from: data) else
+            {
+                return nil
+            }
+
+            return configuration
+        }
+    }
 
     // MARK: - View life cycle -
 
@@ -81,11 +108,40 @@ class TeamViewController: UIViewController
         gradientBottomLayer.frame = footerView.bounds
         footerView.layer.insertSublayer(gradientBottomLayer, at: 0)
 
+        guard let searchConfiguration = searchConfiguration else
+        {
+            presentSearchView()
+            return
+        }
+
+        loadTeam(for: searchConfiguration)
+    }
+
+    private func handleLoadTeamFailed()
+    {
+        let alertController = UIAlertController(title: "No team found",
+                                                message: "There are no team with the name \(searchConfiguration?.teamName ?? "-") on Twitch.",
+                                                preferredStyle: .alert)
+
+        let action = UIAlertAction(title: "OK", style: .default)
+        { [weak self] _ in
+            self?.presentSearchView()
+            self?.loadingView.dismiss()
+        }
+
+        searchConfiguration = nil
+
+        alertController.addAction(action)
+        present(alertController, animated: true)
+    }
+
+    private func loadTeam(for configuration: SearchConfiguration)
+    {
         // Show loading view.
         loadingView.present(on: view)
 
         // Get values from server.
-        TwiteboApi.shared.loadTeam(withName: "livecoders")
+        TwiteboApi.shared.loadTeam(withName: configuration.teamName)
         { [weak self] team in
             // Ensure self exists
             guard let self = self else { return }
@@ -95,11 +151,19 @@ class TeamViewController: UIViewController
             {
                 DispatchQueue.main.async
                 {
-                    // TODO: Handle this state
-                    print("No team found")
-                    self.loadingView.dismiss()
+                    self.handleLoadTeamFailed()
                 }
                 return
+            }
+
+            if configuration.showMatureStreamer == false
+            {
+                team.members = team.members.filter { $0.isMature == false }
+            }
+
+            if configuration.showOnlyApStreamer
+            {
+                team.members = team.members.filter { $0.partner == true }
             }
 
             // Change to main (ui) thread.
@@ -114,6 +178,20 @@ class TeamViewController: UIViewController
                 self.loadingView.dismiss()
             }
         }
+    }
+
+    private func presentSearchView()
+    {
+        guard let searchVc = storyboard?.instantiateViewController(withIdentifier: "SearchScene") as? SearchViewController else
+        {
+            return
+        }
+
+        searchVc.setup(for: searchConfiguration ?? SearchConfiguration.empty, with: self)
+        searchVc.modalPresentationStyle = .overCurrentContext
+        searchVc.view.backgroundColor = UIColor.clear
+
+        present(searchVc, animated: true)
     }
 }
 
@@ -142,20 +220,7 @@ extension TeamViewController: TeamInformationViewControllerDelegate
 {
     func teamInformationViewControllerRequestedSearch(_: TeamInformationViewController)
     {
-        guard let searchVc = storyboard?.instantiateViewController(withIdentifier: "SearchScene") as? SearchViewController else
-        {
-            return
-        }
-
-        // TODO: Load it from disk
-        searchVc.setup(for: SearchConfiguration(teamName: "",
-                                                showMatureStreamer: true,
-                                                showOnlyApStreamer: false), with: self)
-
-        searchVc.modalPresentationStyle = .overCurrentContext
-        searchVc.view.backgroundColor = UIColor.clear
-
-        present(searchVc, animated: true)
+        presentSearchView()
     }
 }
 
@@ -163,6 +228,7 @@ extension TeamViewController: SearchViewControllerDelegate
 {
     func searchViewController(_: SearchViewController, requestedSearchWith configuration: SearchConfiguration)
     {
-        print("Now I should search for team: \(configuration.teamName)")
+        searchConfiguration = configuration
+        loadTeam(for: configuration)
     }
 }
