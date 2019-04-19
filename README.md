@@ -1,4 +1,4 @@
-# Twitebo - Twtich Teams Browser
+# Twitebo - Twitch Teams Browser
 > Uses the Twitch API to get information from a team and it's members. It also allows to watch an online team's streamer.
 
 ## Prerequirements
