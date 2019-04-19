@@ -35,7 +35,7 @@ class SearchViewController: UIViewController
 
     /// Attached delegate.
     private weak var delegate: SearchViewControllerDelegate?
-    
+
     /// Underlying search configuration.
     private var configuration: SearchConfiguration?
 
@@ -77,7 +77,6 @@ class SearchViewController: UIViewController
 
     // MARK: - Internal helper -
 
-    
     /// Sets up the view controller with given configuration and delegate.
     ///
     /// - Parameters:
@@ -151,7 +150,8 @@ class SearchViewController: UIViewController
     }
 }
 
-// MARK: - UITextFieldDelegate - 
+// MARK: - UITextFieldDelegate -
+
 extension SearchViewController: UITextFieldDelegate
 {
     // Will be called if an enter or "go" button has been

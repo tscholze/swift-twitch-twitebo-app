@@ -24,7 +24,8 @@ Just me, [Tobi]([https://tscholze.github.io).
 
 ## Thanks to
 
-- Search / Close icon: [Google Material Design](https://materialdesignicons.com/)
+* [Qubodup](https://openclipart.org/user-detail/qubodup) App icon designer
+* [Google Material Design](https://materialdesignicons.com/) - Search / Close icon: 
 
 ## License
 
