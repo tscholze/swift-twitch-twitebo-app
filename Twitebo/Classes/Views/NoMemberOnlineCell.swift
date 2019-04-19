@@ -8,6 +8,8 @@
 
 import UIKit
 
+/// `NoMemberOnlineCell` is a subclass of `ShadowedCollectionViewCell`
+/// and responsible to represent the state that no member is available.
 class NoMemberOnlineCell: ShadowedCollectionViewCell
 {
     // MARK: - Interal properties -

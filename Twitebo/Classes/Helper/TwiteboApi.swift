@@ -19,7 +19,7 @@ class TwiteboApi
 
     // MARK: - Private properties -
 
-    // TODO: Set date format parsing values.
+    // USed json decoder.
     private let decoder = JSONDecoder()
 
     // MARK: - Internal helpers -
@@ -157,6 +157,10 @@ class TwiteboApi
         }.resume()
     }
 
+    /// Sanitizes the team name into an api-understandable string.
+    ///
+    /// - Parameter: Team name to sanitize.
+    /// - Returns: Sanitized team name.
     private func sanitize(teamName: String) -> String
     {
         var name = teamName.replacingOccurrences(of: " ", with: "-")

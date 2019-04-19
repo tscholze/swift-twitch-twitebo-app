@@ -10,14 +10,15 @@ import UIKit
 
 // MARK: - MembersCollectionViewControllerDelegate -
 
-/// `MembersCollectionViewControllerDelegate` can be adopted by an object to get notified on changes in `MembersCollectionViewController`.
+/// `MembersCollectionViewControllerDelegate` can be adopted by an object to get
+/// notified on changes in `MembersCollectionViewController`.
 protocol MembersCollectionViewControllerDelegate: AnyObject
 {
-    /// Teels the delegate that a member has been selected within a
+    /// Tells the delegate that a member has been selected within a
     /// `MembersCollectionViewController`.
     ///
     /// - Parameters
-    ///     - membersCollectionViewController: Collection view that called the delegate.
+    ///     - membersCollectionViewController: Collection view controller that called the delegate.
     ///     - member: Selected member.
     func membersCollectionViewControllerDidSelectMember(_ membersCollectionViewController: MembersCollectionViewController, member: Member)
 }

@@ -11,8 +11,13 @@ import UIKit
 /// Name to identify the gradient layer
 private let kGradientLayerIdentifier = "gradientLayer"
 
+/// `TeamInformationViewControllerDelegate` can be adopted by an object to get
+/// notified on changes in `TeamInformationViewController`.
 protocol TeamInformationViewControllerDelegate: AnyObject
 {
+    /// Tells the delegate that the user requested a new search.
+    ///
+    /// - Parameter teamInformationViewController: View controller that called the delegate.
     func teamInformationViewControllerRequestedSearch(_ teamInformationViewController: TeamInformationViewController)
 }
 
@@ -40,6 +45,7 @@ class TeamInformationViewController: UIViewController
     {
         super.viewDidLoad()
 
+        // Setup view.
         view.translatesAutoresizingMaskIntoConstraints = false
 
         // Clear controls
@@ -74,9 +80,10 @@ class TeamInformationViewController: UIViewController
     /// - Parameter team: Underlying team.
     func setup(forTeam team: Team?, with delegate: TeamInformationViewControllerDelegate)
     {
+        // Set delegate.
         self.delegate = delegate
 
-        // Set text values
+        // Set text values.
         nameLabel.text = team?.displayName
         infoTextView.attributedText = team?.info.replacingOccurrences(of: "\n", with: "").htmlAsAttributedString
 
@@ -92,6 +99,7 @@ class TeamInformationViewController: UIViewController
     @IBAction
     private func onSearchButtonTapped(_: Any)
     {
+        // Call the delegate if user tapped on the search button.
         delegate?.teamInformationViewControllerRequestedSearch(self)
     }
 }

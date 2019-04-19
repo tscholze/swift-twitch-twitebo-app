@@ -45,11 +45,14 @@ class MemberCell: ShadowedCollectionViewCell
         if let logo = member.logo,
             let url = URL(string: logo)
         {
+            // Set image if not found.
             logoImageView.image(fromUrl: url)
         }
         else
         {
-            // TODO: Show placeholder if no logo is available.
+            // Set background to a placeholder one.
+            // This state should not be occur. An image is mandatory.
+            logoImageView.backgroundColor = UIColor.accentLight
         }
 
         // Set color values.
@@ -66,9 +69,9 @@ class MemberCell: ShadowedCollectionViewCell
         matureIdentifierLabel.text = member.isMature ? "🚨" : "👨‍👧‍👦"
         nameLabel.text = member.displayName
 
+        // Style status label text.
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 5
-
         let attributes: [NSAttributedString.Key: Any] = [.paragraphStyle: paragraphStyle]
         statusLabel.attributedText = NSAttributedString(string: member.status, attributes: attributes)
     }

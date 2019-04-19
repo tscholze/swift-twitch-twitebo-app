@@ -16,6 +16,7 @@ class CircleView: UIView
     {
         super.awakeFromNib()
 
+        // CReate a circle of the view.
         layer.cornerRadius = frame.width / 2
         layer.masksToBounds = true
     }

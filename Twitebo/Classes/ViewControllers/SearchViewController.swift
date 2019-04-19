@@ -8,11 +8,20 @@
 
 import UIKit
 
+/// `SearchViewControllerDelegate` can be adopted by an object to get notified on
+/// changes in `SearchViewController`.
 protocol SearchViewControllerDelegate: AnyObject
 {
+    /// Tells the delegate that the user entered a valid search configuration.
+    ///
+    /// - Parameters:
+    ///   - searchViewController: View controller that called the delegate.
+    ///   - configuration: User created search configuration.
     func searchViewController(_ searchViewController: SearchViewController, requestedSearchWith configuration: SearchConfiguration)
 }
 
+/// `SearchViewController` provides a input mask to search
+/// teams.
 class SearchViewController: UIViewController
 {
     // MARK: - Outlets -
@@ -24,9 +33,14 @@ class SearchViewController: UIViewController
 
     // MARK: - Private properties -
 
+    /// Attached delegate.
     private weak var delegate: SearchViewControllerDelegate?
+    
+    /// Underlying search configuration.
     private var configuration: SearchConfiguration?
 
+    /// Gets a validated string of the team name.
+    /// If entered team name is not valid, it will return nil.
     private var validTeamName: String?
     {
         guard let teamName = nameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
@@ -52,6 +66,9 @@ class SearchViewController: UIViewController
         showMatureStreamerSwitch.isOn = configuration.showMatureStreamer
         showOnlyApStreamerSwitch.isOn = configuration.showOnlyApStreamer
 
+        // If an empty configuration is set, select the text input view.
+        // The keyboard will be visible and ready to type without tapping
+        // the control.
         if configuration.teamName.isEmpty
         {
             nameTextField.becomeFirstResponder()
@@ -60,38 +77,55 @@ class SearchViewController: UIViewController
 
     // MARK: - Internal helper -
 
+    
+    /// Sets up the view controller with given configuration and delegate.
+    ///
+    /// - Parameters:
+    ///   - configuration: Underlying configuration.
+    ///   - delegate: Observing delegate.
     func setup(for configuration: SearchConfiguration, with delegate: SearchViewControllerDelegate)
     {
-        // Setup delegates.
+        // Setup private properties.
         self.delegate = delegate
         self.configuration = configuration
     }
 
     // MARK: - Private helper -
 
-    private func searchRequested()
+    /// Will request a search by calling the delegate with updated
+    /// search configuration.
+    /// If configuration is valid, it will also dismiss the view.
+    private func requestSearch()
     {
+        // Ensure entered data is valid.
         guard let teamName = validTeamName else { return }
 
+        // Create the search configuration.
         let searchConfiguration = SearchConfiguration(teamName: teamName,
                                                       showMatureStreamer: showMatureStreamerSwitch.isOn,
                                                       showOnlyApStreamer: showOnlyApStreamerSwitch.isOn)
 
+        // Call delegate.
         delegate?.searchViewController(self,
                                        requestedSearchWith: searchConfiguration)
 
+        // Dismiss view.
         dismissView()
     }
 
+    /// Will resign all first repsonders and dismisses the view.
     private func dismissView()
     {
         nameTextField.resignFirstResponder()
         dismiss(animated: true)
     }
 
+    /// Will be called if the text field value changes.
     @IBAction
     private func onNameTextFieldValueChanged(_: Any)
     {
+        // If a valid team name has been entered,
+        // enable the search button - or not.
         if validTeamName != nil
         {
             searchButton.isEnabled = true
@@ -107,7 +141,7 @@ class SearchViewController: UIViewController
     @IBAction
     private func onSearchButtonTapped(_: Any)
     {
-        searchRequested()
+        requestSearch()
     }
 
     @IBAction
@@ -117,11 +151,14 @@ class SearchViewController: UIViewController
     }
 }
 
+// MARK: - UITextFieldDelegate - 
 extension SearchViewController: UITextFieldDelegate
 {
+    // Will be called if an enter or "go" button has been
+    /// tapped by the user.
     func textFieldShouldReturn(_: UITextField) -> Bool
     {
-        searchRequested()
+        requestSearch()
         return true
     }
 }
