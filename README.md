@@ -1,6 +1,9 @@
 # Twitebo - Twitch Teams Browser
 > Uses the Twitch API to get information from a team and it's members. It also allows to watch an online team's streamer.
 
+## Notice
+Due to changing web requests, this project may not run as smooth as it was during the development time.
+
 ## Prerequirements
 - Xcode 10.2+
 - Swift 5
